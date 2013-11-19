@@ -20,13 +20,20 @@ namespace DAL_Library
         public void addNews(New news)
         {
             //DataClasses1DataContext dc = new DataClasses1DataContext();
-            dc.News.InsertOnSubmit(news);
+            if (!dc.News.Contains(news))
+            {
+                dc.News.InsertOnSubmit(news);
+            }
         }
 
-        public void delNews(int id)
+        public void delNews(New news)
         {
             //DataClasses1DataContext dc = new DataClasses1DataContext();
-            dc.News.DeleteOnSubmit(dc.News.)
+            if (dc.News.Contains(news))
+            {
+                dc.News.DeleteOnSubmit(news);
+            }
         }
+
     }
 }

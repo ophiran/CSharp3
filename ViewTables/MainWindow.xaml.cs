@@ -43,12 +43,15 @@ namespace ViewTables
             New n = newsList.ElementAt<New>(e.NewIndex);
             Console.Out.WriteLine(n.Id);
             Console.Out.WriteLine(n.Title);
-            if (n.Id != 0)
+
+            if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
             {
-                db.delNews(n.Id);
                 db.addNews(n);
             }
-            
+            else if (e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                db.delNews(n);
+            }
         }
     }
 }
