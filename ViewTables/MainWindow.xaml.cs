@@ -1,5 +1,9 @@
-﻿using System;
+﻿using DAL_Library;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using DAL_Library;
-using System.Collections.Specialized;
-using System.ComponentModel;
 
 namespace ViewTables
 {
@@ -24,7 +24,7 @@ namespace ViewTables
     /// </summary>
     public partial class MainWindow : Window
     {
-        public BindingList<New> newsList { get; set; }
+        public BindingListWRemove<New> newsList { get; set; }
         public BindingList<Article> articlesList { get; set; }
         public BindingList<Right> rightsList { get; set; }
         public BindingList<DAL_Library.Type> typesList { get; set; }
@@ -38,7 +38,7 @@ namespace ViewTables
             this.DataContext = this;
             db = new DbAccess();
 
-            newsList = new BindingList<New>(db.getNews());
+            newsList = new BindingListWRemove<New>(db.getNews());
             /*
             articlesList = new BindingList<Article>(db.getArticles());
             rightsList = new BindingList<Right>(db.getRights());
@@ -47,6 +47,7 @@ namespace ViewTables
             */
 
             newsList.ListChanged += onNewsListChanged;
+            newsList.BeforeRemove += onNewsDelete;
             /*
             articlesList.ListChanged += onArticlesListChanged;
             rightsList.ListChanged += onRightsListChanged;
@@ -57,24 +58,26 @@ namespace ViewTables
 
         }
 
+        public void onNewsDelete(object sender, ListChangedEventArgs e)
+        {
+            New n = newsList.ElementAt<New>(e.NewIndex);
+            db.delNews(n);
+        }
+
         public void onNewsListChanged(object sender, ListChangedEventArgs e)
         {
-            Console.Out.WriteLine("EVENNNNNNNNNNNNTTTTTTTTTTTTTT");
-            New n = newsList.ElementAt<New>(e.NewIndex);
-            Console.Out.WriteLine(n.Id);
-            Console.Out.WriteLine(n.Title);
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                New n = newsList.ElementAt<New>(e.NewIndex);
 
-            if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
-            {
-                db.addNews(n);
-            }
-            else if (e.ListChangedType.Equals(ListChangedType.ItemDeleted))
-            {
-                db.delNews(n);
-            }
-            else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
-            {
-                db.updNews(n);
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addNews(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updNews(n);
+                }
             }
         }
     }

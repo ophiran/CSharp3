@@ -9,7 +9,7 @@ namespace DAL_Library
 {
     public class DbAccess
     {
-        DataClasses1DataContext dc = new DataClasses1DataContext();
+        public DataClasses1DataContext dc = new DataClasses1DataContext();
         public List<New> getNews()
         {
             //DataClasses1DataContext dc = new DataClasses1DataContext();
