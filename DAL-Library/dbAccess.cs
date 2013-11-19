@@ -23,11 +23,10 @@ namespace DAL_Library
             dc.News.InsertOnSubmit(news);
         }
 
-        public void saveNews(List<New> newsList)
+        public void delNews(int id)
         {
             //DataClasses1DataContext dc = new DataClasses1DataContext();
-            dc.News.DeleteAllOnSubmit(dc.News.ToList<New>());
-            dc.News.InsertAllOnSubmit(newsList);
+            dc.News.DeleteOnSubmit(dc.News.)
         }
     }
 }
