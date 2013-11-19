@@ -25,6 +25,11 @@ namespace ViewTables
     public partial class MainWindow : Window
     {
         public BindingList<New> newsList { get; set; }
+        public BindingList<Article> articlesList { get; set; }
+        public BindingList<Right> rightsList { get; set; }
+        public BindingList<DAL_Library.Type> typesList { get; set; }
+        public BindingList<User> usersList { get; set; }
+
         DbAccess db;
         public MainWindow()
         {
@@ -32,12 +37,27 @@ namespace ViewTables
             
             this.DataContext = this;
             db = new DbAccess();
+
             newsList = new BindingList<New>(db.getNews());
-            newsList.ListChanged += onListChanged;
+            /*
+            articlesList = new BindingList<Article>(db.getArticles());
+            rightsList = new BindingList<Right>(db.getRights());
+            typesList = new BindingList<DAL_Library.Type>(db.getTypes());
+            usersList = new BindingList<User>(db.getUsers());
+            */
+
+            newsList.ListChanged += onNewsListChanged;
+            /*
+            articlesList.ListChanged += onArticlesListChanged;
+            rightsList.ListChanged += onRightsListChanged;
+            typesList.ListChanged += onTypesListChanged;
+            usersList.ListChanged += onUsersListChanged;
+            */
+
 
         }
 
-        public void onListChanged(object sender, ListChangedEventArgs e)
+        public void onNewsListChanged(object sender, ListChangedEventArgs e)
         {
             Console.Out.WriteLine("EVENNNNNNNNNNNNTTTTTTTTTTTTTT");
             New n = newsList.ElementAt<New>(e.NewIndex);
