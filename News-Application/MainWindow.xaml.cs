@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using DAL_Library;
+using System.Collections.Specialized;
 
 namespace News_Application
 {
@@ -22,21 +25,31 @@ namespace News_Application
     public partial class MainWindow : Window
     {
         DbAccess db;
+        public ObservableCollection<New> x { get; set; }
+       
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
             db = new DbAccess();
             List<New> newsList = db.getNews();
-            newsGrid.ItemsSource = newsList;
+            x = new ObservableCollection<New>(newsList);
+            //newsGrid.ItemsSource = obsCol;
+            x.CollectionChanged += this.onCollectionChanged;
+            //Console.Out.WriteLine(newsGrid.ItemsSource.ToString());
+
 
         }
 
-        private void newsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-        
-            List<New> newsList = (List<New>) e.AddedItems;
-            foreach(New n in newsList) {
-                db.addNews(n);
+        public void onCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            Console.Out.WriteLine("OKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+            foreach (New n in e.NewItems)
+            {
+                Console.Out.WriteLine(n.Title);
             }
+
+
         }
     }
 }
