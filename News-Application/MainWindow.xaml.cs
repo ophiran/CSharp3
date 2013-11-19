@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DAL_Library;
 
 namespace News_Application
 {
@@ -20,9 +21,22 @@ namespace News_Application
     /// </summary>
     public partial class MainWindow : Window
     {
+        DbAccess db;
         public MainWindow()
         {
             InitializeComponent();
+            db = new DbAccess();
+            List<New> newsList = db.getNews();
+            newsGrid.ItemsSource = newsList;
+
+        }
+
+        private void newsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        
+            List<New> newsList = (List<New>) e.AddedItems;
+            foreach(New n in newsList) {
+                db.addNews(n);
+            }
         }
     }
 }

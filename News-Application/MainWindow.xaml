@@ -1,8 +1,10 @@
-﻿<Window x:Class="News_Application.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:DAL_Library="clr-namespace:DAL_Library;assembly=DAL-Library" x:Class="News_Application.MainWindow"
+        Title="MainWindow" Height="700" Width="900">
     <Grid Margin="0,-26,0,1">
-        
+        <DataGrid Name="newsGrid" HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top" Height="600" Width="800" SelectionChanged="newsGrid_SelectionChanged">
+        </DataGrid>
     </Grid>
 </Window>
