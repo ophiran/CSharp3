@@ -52,6 +52,10 @@ namespace ViewTables
             {
                 db.delNews(n);
             }
+            else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+            {
+                db.updNews(n);
+            }
         }
     }
 }

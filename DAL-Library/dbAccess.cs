@@ -23,6 +23,7 @@ namespace DAL_Library
             if (!dc.News.Contains(news))
             {
                 dc.News.InsertOnSubmit(news);
+                dc.SubmitChanges();
             }
         }
 
@@ -32,6 +33,16 @@ namespace DAL_Library
             if (dc.News.Contains(news))
             {
                 dc.News.DeleteOnSubmit(news);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void updNews(New news)
+        {
+            if (dc.News.Contains(news))
+            {
+                delNews(news);
+                addNews(news);
             }
         }
 
