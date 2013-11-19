@@ -61,20 +61,27 @@ namespace ViewTables
         {
             Console.Out.WriteLine("EVENNNNNNNNNNNNTTTTTTTTTTTTTT");
             New n = newsList.ElementAt<New>(e.NewIndex);
+            New newsChanged = new New();
+            newsChanged.Id = n.Id;
+            newsChanged.Title = n.Title;
+            newsChanged.SubTitle = n.Title;
+            newsChanged.Text = n.Text;
+            //newsChanged.NewsImages = n.NewsImages;
             Console.Out.WriteLine(n.Id);
             Console.Out.WriteLine(n.Title);
 
             if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
             {
-                db.addNews(n);
+
+                db.addNews(newsChanged);
             }
             else if (e.ListChangedType.Equals(ListChangedType.ItemDeleted))
             {
-                db.delNews(n);
+                db.delNews(newsChanged);
             }
             else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
             {
-                db.updNews(n);
+                db.updNews(newsChanged);
             }
         }
     }
