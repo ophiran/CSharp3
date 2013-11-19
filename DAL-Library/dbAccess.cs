@@ -39,11 +39,7 @@ namespace DAL_Library
 
         public void updNews(New news)
         {
-            if (dc.News.Contains(news))
-            {
-                delNews(news);
-                //addNews(news);
-            }
+            dc.SubmitChanges();
         }
 
     }

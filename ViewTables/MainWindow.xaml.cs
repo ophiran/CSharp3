@@ -74,7 +74,6 @@ namespace ViewTables
             }
             else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
             {
-                
                 db.updNews(n);
             }
         }
