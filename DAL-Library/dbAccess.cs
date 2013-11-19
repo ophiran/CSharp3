@@ -42,7 +42,7 @@ namespace DAL_Library
             if (dc.News.Contains(news))
             {
                 delNews(news);
-                addNews(news);
+                //addNews(news);
             }
         }
 
