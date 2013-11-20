@@ -17,11 +17,17 @@ namespace DAL_Library
             return newsList;
         }
 
+        public int getMaxIdNews()
+        {
+            return dc.News.Max(n => n.Id);
+        }
+
         public void addNews(New news)
         {
             //DataClasses1DataContext dc = new DataClasses1DataContext();
             if (!dc.News.Contains(news))
             {
+                news.Id = getMaxIdNews() + 1;
                 dc.News.InsertOnSubmit(news);
                 dc.SubmitChanges();
             }
