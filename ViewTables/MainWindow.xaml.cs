@@ -25,10 +25,10 @@ namespace ViewTables
     public partial class MainWindow : Window
     {
         public BindingListWRemove<New> newsList { get; set; }
-        public BindingList<Article> articlesList { get; set; }
-        public BindingList<Right> rightsList { get; set; }
-        public BindingList<DAL_Library.Type> typesList { get; set; }
-        public BindingList<User> usersList { get; set; }
+        public BindingListWRemove<Article> articlesList { get; set; }
+        public BindingListWRemove<Right> rightsList { get; set; }
+        public BindingListWRemove<DAL_Library.Type> typesList { get; set; }
+        public BindingListWRemove<User> usersList { get; set; }
 
         DbAccess db;
         public MainWindow()
@@ -39,21 +39,21 @@ namespace ViewTables
             db = new DbAccess();
 
             newsList = new BindingListWRemove<New>(db.getNews());
-            /*
-            articlesList = new BindingList<Article>(db.getArticles());
-            rightsList = new BindingList<Right>(db.getRights());
-            typesList = new BindingList<DAL_Library.Type>(db.getTypes());
-            usersList = new BindingList<User>(db.getUsers());
-            */
+            articlesList = new BindingListWRemove<Article>(db.getArticles());
+            rightsList = new BindingListWRemove<Right>(db.getRights());
+            typesList = new BindingListWRemove<DAL_Library.Type>(db.getTypes());
+            usersList = new BindingListWRemove<User>(db.getUsers());
 
             newsList.ListChanged += onNewsListChanged;
             newsList.BeforeRemove += onNewsDelete;
-            /*
             articlesList.ListChanged += onArticlesListChanged;
+            articlesList.BeforeRemove += onArticlesDelete;
             rightsList.ListChanged += onRightsListChanged;
+            rightsList.BeforeRemove += onRightsDelete;
             typesList.ListChanged += onTypesListChanged;
+            typesList.BeforeRemove += onTypesDelete;
             usersList.ListChanged += onUsersListChanged;
-            */
+            usersList.BeforeRemove += onTypesDelete;
 
 
         }
@@ -77,6 +77,98 @@ namespace ViewTables
                 else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
                 {
                     db.updNews(n);
+                }
+            }
+        }
+
+        public void onArticlesDelete(object sender, ListChangedEventArgs e)
+        {
+            New n = articlesList.ElementAt<New>(e.NewIndex);
+            db.delArticles(n);
+        }
+
+        public void onArticlesListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                New n = articlesList.ElementAt<New>(e.NewIndex);
+
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addArticles(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updArticles(n);
+                }
+            }
+        }
+
+        public void onRightsDelete(object sender, ListChangedEventArgs e)
+        {
+            New n = rightsList.ElementAt<New>(e.NewIndex);
+            db.delRights(n);
+        }
+
+        public void onRightsListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                New n = rightsList.ElementAt<New>(e.NewIndex);
+
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addRights(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updRights(n);
+                }
+            }
+        }
+
+        public void onTypesDelete(object sender, ListChangedEventArgs e)
+        {
+            New n = typesList.ElementAt<New>(e.NewIndex);
+            db.delTypes(n);
+        }
+
+        public void onTypesListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                New n = typesList.ElementAt<New>(e.NewIndex);
+
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addTypes(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updTypes(n);
+                }
+            }
+        }
+
+        public void onUsersDelete(object sender, ListChangedEventArgs e)
+        {
+            New n = usersList.ElementAt<New>(e.NewIndex);
+            db.delUsers(n);
+        }
+
+        public void onUsersListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                New n = usersList.ElementAt<New>(e.NewIndex);
+
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addUsers(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updUsers(n);
                 }
             }
         }
