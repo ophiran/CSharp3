@@ -21,7 +21,14 @@ namespace DAL_Library
 
         public int getMaxIdNews()
         {
-            return dc.News.Max(n => n.Id);
+            if (dc.News.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.News.Max(n => n.Id);
+            }
         }
 
         public void addNews(New news)
@@ -62,7 +69,14 @@ namespace DAL_Library
 
         public int getMaxIdArticles()
         {
-            return dc.Articles.Max(n => n.Id);
+            if (dc.Articles.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.Articles.Max(n => n.Id);
+            }
         }
 
         public void addArticles(Article articles)
@@ -102,7 +116,14 @@ namespace DAL_Library
 
         public int getMaxIdRights()
         {
-            return dc.Rights.Max(n => n.Id);
+            if (dc.Rights.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.Rights.Max(n => n.Id);
+            }
         }
 
         public void addRights(Right rights)
@@ -142,7 +163,14 @@ namespace DAL_Library
 
         public int getMaxIdTypes()
         {
-            return dc.Types.Max(n => n.Id);
+            if (dc.Types.Count() == 0)
+            {
+                return 0;
+            } 
+            else 
+            {
+                return dc.Types.Max(n => n.Id);
+            }
         }
 
         public void addTypes(Type types)
@@ -182,7 +210,14 @@ namespace DAL_Library
 
         public int getMaxIdUsers()
         {
-            return dc.Users.Max(n => n.Id);
+            if (dc.Users.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.Users.Max(n => n.Id);
+            }
         }
 
         public void addUsers(User users)

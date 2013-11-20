@@ -53,7 +53,7 @@ namespace ViewTables
             typesList.ListChanged += onTypesListChanged;
             typesList.BeforeRemove += onTypesDelete;
             usersList.ListChanged += onUsersListChanged;
-            usersList.BeforeRemove += onTypesDelete;
+            usersList.BeforeRemove += onUsersDelete;
 
 
         }
