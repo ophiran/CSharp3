@@ -83,7 +83,7 @@ namespace ViewTables
 
         public void onArticlesDelete(object sender, ListChangedEventArgs e)
         {
-            New n = articlesList.ElementAt<New>(e.NewIndex);
+            Article n = articlesList.ElementAt<Article>(e.NewIndex);
             db.delArticles(n);
         }
 
@@ -91,7 +91,7 @@ namespace ViewTables
         {
             if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
             {
-                New n = articlesList.ElementAt<New>(e.NewIndex);
+                Article n = articlesList.ElementAt<Article>(e.NewIndex);
 
                 if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
                 {
@@ -106,7 +106,7 @@ namespace ViewTables
 
         public void onRightsDelete(object sender, ListChangedEventArgs e)
         {
-            New n = rightsList.ElementAt<New>(e.NewIndex);
+            Right n = rightsList.ElementAt<Right>(e.NewIndex);
             db.delRights(n);
         }
 
@@ -114,7 +114,7 @@ namespace ViewTables
         {
             if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
             {
-                New n = rightsList.ElementAt<New>(e.NewIndex);
+                Right n = rightsList.ElementAt<Right>(e.NewIndex);
 
                 if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
                 {
@@ -129,7 +129,7 @@ namespace ViewTables
 
         public void onTypesDelete(object sender, ListChangedEventArgs e)
         {
-            New n = typesList.ElementAt<New>(e.NewIndex);
+            DAL_Library.Type n = typesList.ElementAt<DAL_Library.Type>(e.NewIndex);
             db.delTypes(n);
         }
 
@@ -137,7 +137,7 @@ namespace ViewTables
         {
             if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
             {
-                New n = typesList.ElementAt<New>(e.NewIndex);
+                DAL_Library.Type n = typesList.ElementAt<DAL_Library.Type>(e.NewIndex);
 
                 if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
                 {
@@ -152,7 +152,7 @@ namespace ViewTables
 
         public void onUsersDelete(object sender, ListChangedEventArgs e)
         {
-            New n = usersList.ElementAt<New>(e.NewIndex);
+            User n = usersList.ElementAt<User>(e.NewIndex);
             db.delUsers(n);
         }
 
@@ -160,7 +160,7 @@ namespace ViewTables
         {
             if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
             {
-                New n = usersList.ElementAt<New>(e.NewIndex);
+                User n = usersList.ElementAt<User>(e.NewIndex);
 
                 if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
                 {
