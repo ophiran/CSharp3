@@ -443,7 +443,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Image", Storage="_Image1", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Image", Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Image1
 		{
 			get
@@ -948,7 +948,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50)")]
 		public string Name
 		{
 			get
@@ -1037,7 +1037,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50)")]
 		public string Type1
 		{
 			get
@@ -1228,7 +1228,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
 		public string UserName
 		{
 			get
@@ -1248,7 +1248,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarBinary(50)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Password
 		{
 			get
@@ -1268,7 +1268,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailAddress", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailAddress", DbType="VarChar(MAX)")]
 		public string MailAddress
 		{
 			get
