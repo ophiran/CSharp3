@@ -29,21 +29,31 @@
         private void InitializeComponent()
         {
             this.systemLog = new System.Diagnostics.EventLog();
+            this.xmlFileWatcher = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.systemLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xmlFileWatcher)).BeginInit();
             // 
             // systemLog
             // 
             this.systemLog.EntryWritten += new System.Diagnostics.EntryWrittenEventHandler(this.eventLog1_EntryWritten);
             // 
+            // xmlFileWatcher
+            // 
+            this.xmlFileWatcher.EnableRaisingEvents = true;
+            this.xmlFileWatcher.Path = "C:\\xmlFileWatcherCSharp";
+            this.xmlFileWatcher.Changed += new System.IO.FileSystemEventHandler(this.xmlFileWatcher_Changed);
+            // 
             // NewsWindowsService
             // 
             this.ServiceName = "Service1";
             ((System.ComponentModel.ISupportInitialize)(this.systemLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xmlFileWatcher)).EndInit();
 
         }
 
         #endregion
 
         private System.Diagnostics.EventLog systemLog;
+        private System.IO.FileSystemWatcher xmlFileWatcher;
     }
 }
