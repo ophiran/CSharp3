@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.125" name="DataClasses1">
   <DataContextMoniker Name="/DataClasses1DataContext" />
   <nestedChildShapes>
-    <classShape Id="4d5f2ee6-1d27-440f-87d3-e77a4fe87090" absoluteBounds="6.5, 3.875, 2, 2.1554996744791666">
+    <classShape Id="4d5f2ee6-1d27-440f-87d3-e77a4fe87090" absoluteBounds="6.875, 3.875, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataClasses1DataContext/Article" />
       <nestedChildShapes>
-        <elementListCompartment Id="c4268976-05a7-465d-9a5a-af2692fdae93" absoluteBounds="6.515, 4.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c4268976-05a7-465d-9a5a-af2692fdae93" absoluteBounds="6.89, 4.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="c056f470-12f6-45ba-be03-28e8272af7ae" absoluteBounds="0.75, 0.875, 2, 1.5785953776041664">
@@ -32,10 +32,10 @@
         <elementListCompartment Id="b757c3b2-7a57-4f01-b862-58cd8e8820a0" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9234a4f0-c635-48b8-90fa-962ca1a147c8" absoluteBounds="3.75, 4.375, 2, 1.1939925130208327">
+    <classShape Id="9234a4f0-c635-48b8-90fa-962ca1a147c8" absoluteBounds="4, 4.375, 2, 1.1939925130208327">
       <DataClassMoniker Name="/DataClasses1DataContext/Type" />
       <nestedChildShapes>
-        <elementListCompartment Id="184f6eb7-a925-4087-9ee9-a2738ba714f3" absoluteBounds="3.765, 4.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="184f6eb7-a925-4087-9ee9-a2738ba714f3" absoluteBounds="4.0150000000000006, 4.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="b91a0abc-b8a5-474e-9860-0b46cfbaf394" absoluteBounds="0.75, 6.75, 2, 2.1554996744791666">
@@ -44,21 +44,21 @@
         <elementListCompartment Id="4c2d3433-5a3e-44f9-9bc9-6561d58bb6cf" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/Image/Image_NewsImage" />
       <nodes>
         <classShapeMoniker Id="c056f470-12f6-45ba-be03-28e8272af7ae" />
         <classShapeMoniker Id="5424e7e3-0dc7-4b86-bc29-8b205da12f51" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.03125); (3.59375 : 4.03125); (3.59375 : 2.31899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.03125); (3.71875 : 4.03125); (3.71875 : 2.31899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClasses1DataContext/New/New_NewsImage" />
       <nodes>
         <classShapeMoniker Id="6152576f-b872-4e7c-a62e-4a0cf19a7a7f" />
         <classShapeMoniker Id="5424e7e3-0dc7-4b86-bc29-8b205da12f51" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 4.97199625651042); (6.5 : 4.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6 : 4.97199625651042); (6.875 : 4.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClasses1DataContext/Type/Type_Article" />
       <nodes>
         <classShapeMoniker Id="9234a4f0-c635-48b8-90fa-962ca1a147c8" />

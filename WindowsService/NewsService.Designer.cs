@@ -40,12 +40,15 @@
             // xmlFileWatcher
             // 
             this.xmlFileWatcher.EnableRaisingEvents = true;
+            this.xmlFileWatcher.Filter = "*.xml";
+            this.xmlFileWatcher.NotifyFilter = ((System.IO.NotifyFilters)(((System.IO.NotifyFilters.FileName | System.IO.NotifyFilters.Size) 
+            | System.IO.NotifyFilters.LastWrite)));
             this.xmlFileWatcher.Path = "C:\\xmlFileWatcherCSharp";
             this.xmlFileWatcher.Changed += new System.IO.FileSystemEventHandler(this.xmlFileWatcher_Changed);
             // 
             // NewsWindowsService
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "NewsServiceCSharp";
             ((System.ComponentModel.ISupportInitialize)(this.systemLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xmlFileWatcher)).EndInit();
 

@@ -18,10 +18,10 @@ namespace WindowsService
             if (!System.Diagnostics.EventLog.SourceExists("SystemLog"))
             {
                 System.Diagnostics.EventLog.CreateEventSource(
-                    "SystemLog", "LogEntry");
+                    "SystemLog", "NewsCSharpEntries");
             }
             systemLog.Source = "SystemLog";
-            systemLog.Log = "LogEntry";
+            systemLog.Log = "NewsCSharpEntries";
         }
 
         protected override void OnStart(string[] args)
@@ -36,12 +36,13 @@ namespace WindowsService
 
         private void eventLog1_EntryWritten(object sender, EntryWrittenEventArgs e)
         {
-
+            
         }
 
         private void xmlFileWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
             systemLog.WriteEntry("A file has been modified or added - " + e.Name);
+            
         }
     }
 }

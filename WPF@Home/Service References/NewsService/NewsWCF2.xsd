@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DAL_Library" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DAL_Library" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+  <xs:complexType name="ArrayOfNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="New" nillable="true" type="tns:New" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNew" nillable="true" type="tns:ArrayOfNew" />
+  <xs:complexType name="New">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepositDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsImages" nillable="true" type="tns:ArrayOfNewsImage" />
+      <xs:element minOccurs="0" name="SubTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="New" nillable="true" type="tns:New" />
+  <xs:complexType name="ArrayOfNewsImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsImage" nillable="true" type="tns:NewsImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsImage" nillable="true" type="tns:ArrayOfNewsImage" />
+  <xs:complexType name="NewsImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Image" type="xs:int" />
+      <xs:element minOccurs="0" name="Image1" nillable="true" type="tns:Image" />
+      <xs:element minOccurs="0" name="New" nillable="true" type="tns:New" />
+      <xs:element minOccurs="0" name="News" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsImage" nillable="true" type="tns:NewsImage" />
+  <xs:complexType name="Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Linq" minOccurs="0" name="Image1" nillable="true" type="q1:Binary" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsImages" nillable="true" type="tns:ArrayOfNewsImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Image" nillable="true" type="tns:Image" />
+</xs:schema>

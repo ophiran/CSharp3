@@ -55,7 +55,7 @@ namespace ViewTables
             usersList.ListChanged += onUsersListChanged;
             usersList.BeforeRemove += onUsersDelete;
 
-
+            
         }
 
         public void onNewsDelete(object sender, ListChangedEventArgs e)
