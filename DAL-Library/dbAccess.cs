@@ -14,10 +14,35 @@ namespace DAL_Library
         #region News
         public List<New> getNews()
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
-            List<New> newsList = dc.News.ToList<New>();
-            return newsList;
+            IEnumerable<New> newsList = from news in dc.News
+                                        select news;
+            //List<New> newsList = listNews.ToList<New>();
+                
+            return newsList.ToList<New>();
         }
+
+        /*
+        public List<New> getNews(User user)
+        {
+            List<New> newsList = null;
+            var rightType = from rights in dc.Rights
+                            where rights.Name == "Journalist"
+                            select rights.Id;
+            var userRightType = from users in dc.Users
+                                where users.UserName == user.UserName
+                                select users.Right;
+            Console.Out.WriteLine(rightType.ToString()); // DEBUG
+            Console.Out.WriteLine(userRightType.ToString()); // DEBUG
+            if (userRightType == rightType)
+            {
+                IEnumerable<New> listNews = from news in dc.News
+                                            where news.Author == user.Id
+                                            select news;
+                newsList = listNews.ToList<New>();
+            }
+
+            return newsList;
+        }*/
 
         public int getMaxIdNews()
         {
@@ -33,7 +58,7 @@ namespace DAL_Library
 
         public void addNews(New news)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (!dc.News.Contains(news))
             {
                 news.Id = getMaxIdNews() + 1;
@@ -44,7 +69,7 @@ namespace DAL_Library
 
         public void delNews(New news)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (dc.News.Contains(news))
             {
                 dc.News.DeleteOnSubmit(news);
@@ -62,9 +87,12 @@ namespace DAL_Library
         #region Articles
         public List<Article> getArticles()
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
-            List<Article> articlesList = dc.Articles.ToList<Article>();
-            return articlesList;
+            
+            //List<Article> articlesList = dc.Articles.ToList<Article>();
+            IEnumerable<Article> articlesList = from articles in dc.Articles
+                                                select articles;
+
+            return articlesList.ToList<Article>();
         }
 
         public int getMaxIdArticles()
@@ -81,7 +109,7 @@ namespace DAL_Library
 
         public void addArticles(Article articles)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (!dc.Articles.Contains(articles))
             {
                 articles.Id = getMaxIdArticles() + 1;
@@ -92,7 +120,7 @@ namespace DAL_Library
 
         public void delArticles(Article articles)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (dc.Articles.Contains(articles))
             {
                 dc.Articles.DeleteOnSubmit(articles);
@@ -109,9 +137,11 @@ namespace DAL_Library
         #region Rights
         public List<Right> getRights()
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
-            List<Right> rightsList = dc.Rights.ToList<Right>();
-            return rightsList;
+            
+            //List<Right> rightsList = dc.Rights.ToList<Right>();
+            IEnumerable<Right> rightsList = from rights in dc.Rights
+                                            select rights;
+            return rightsList.ToList<Right>();
         }
 
         public int getMaxIdRights()
@@ -128,7 +158,7 @@ namespace DAL_Library
 
         public void addRights(Right rights)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (!dc.Rights.Contains(rights))
             {
                 rights.Id = getMaxIdRights() + 1;
@@ -139,7 +169,7 @@ namespace DAL_Library
 
         public void delRights(Right rights)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (dc.Rights.Contains(rights))
             {
                 dc.Rights.DeleteOnSubmit(rights);
@@ -156,9 +186,11 @@ namespace DAL_Library
         #region Types
         public List<Type> getTypes()
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
-            List<Type> typesList = dc.Types.ToList<Type>();
-            return typesList;
+            
+            //List<Type> typesList = dc.Types.ToList<Type>();
+            IEnumerable<Type> typesList = from types in dc.Types
+                                          select types;
+            return typesList.ToList<Type>();
         }
 
         public int getMaxIdTypes()
@@ -175,7 +207,7 @@ namespace DAL_Library
 
         public void addTypes(Type types)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (!dc.Types.Contains(types))
             {
                 types.Id = getMaxIdTypes() + 1;
@@ -186,7 +218,7 @@ namespace DAL_Library
 
         public void delTypes(Type types)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (dc.Types.Contains(types))
             {
                 dc.Types.DeleteOnSubmit(types);
@@ -203,9 +235,11 @@ namespace DAL_Library
         #region Users
         public List<User> getUsers()
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
-            List<User> usersList = dc.Users.ToList<User>();
-            return usersList;
+            
+            //List<User> usersList = dc.Users.ToList<User>();
+            IEnumerable<User> usersList = from users in dc.Users
+                                          select users;
+            return usersList.ToList<User>();
         }
 
         public int getMaxIdUsers()
@@ -222,7 +256,7 @@ namespace DAL_Library
 
         public void addUsers(User users)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (!dc.Users.Contains(users))
             {
                 users.Id = getMaxIdTypes() + 1;
@@ -233,7 +267,7 @@ namespace DAL_Library
 
         public void delUsers(User users)
         {
-            //DataClasses1DataContext dc = new DataClasses1DataContext();
+            
             if (dc.Users.Contains(users))
             {
                 dc.Users.DeleteOnSubmit(users);

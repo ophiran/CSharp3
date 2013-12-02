@@ -26,8 +26,8 @@ namespace DAL_Library.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Projects;Initial Catalog=dbCSharp;Integrated Security=True;" +
-            "Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=dbCSharp;Integrated Security=True;Con" +
+            "nect Timeout=30")]
         public string dbCSharpConnectionString {
             get {
                 return ((string)(this["dbCSharpConnectionString"]));
