@@ -61,24 +61,15 @@ namespace WindowsService
 
         private void xmlFileWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
-            
+            News news;
             systemLog.WriteEntry("A file has been modified or added - " + e.Name);
-            try
-            {
-                String test = "";
-                test += proxy.connectUser("", "");
-                systemLog.WriteEntry(test);
-                
-            }
-            catch (Exception ex)
-            {
-                systemLog.WriteEntry(ex.StackTrace);
-            }
+
             XDocument doc = XDocument.Load(e.FullPath);
-            IEnumerable<XElement> iterator = doc.Descendants();
+            IEnumerable<XElement> iterator = doc.Descendants("News");
             foreach (XElement elem in iterator)
             {
-                systemLog.WriteEntry(elem.Name.LocalName);
+                
+                systemLog.WriteEntry(elem.Element("Title").Value);
             }
         }
     }
