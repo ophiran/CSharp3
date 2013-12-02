@@ -13,10 +13,10 @@ namespace WcfService
     public interface INewsWCF
     {
         [OperationContract]
-        int createUser(String username, String password);
+        void createUser(String firstname, String lastname, String username, String password);
 
         [OperationContract]
-        int connectUser(String username, String password);
+        User connectUser(String username, String password);
 
         [OperationContract]
         List<New> getNews();

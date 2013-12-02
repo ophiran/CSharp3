@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using DAL_Library;
+using BLL_Library;
 
 namespace WcfService
 {
@@ -12,25 +13,26 @@ namespace WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select NewsWCF.svc or NewsWCF.svc.cs at the Solution Explorer and start debugging.
     public class NewsWCF : INewsWCF
     {
+        private blAccess bl;
 
-        public int createUser(string username, string password)
+        public void createUser(string firstname, string lastname, string username, string password)
         {
-            return 0;
+            bl.addJournalist(firstname, lastname, username, password);
         }
 
-        public int connectUser(string username, string password)
+        public User connectUser(string username, string password)
         {
-            return 0;
+            return bl.getUser(username, password);
         }
 
         public List<New> getNews()
         {
-            throw new NotImplementedException();
+            return bl.getNews();
         }
 
-        public List<New> getHistoric(int userId)
+        public List<New> getHistoric(User user)
         {
-            throw new NotImplementedException();
+            return bl.getNews(user);
         }
     }
 }

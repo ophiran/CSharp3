@@ -16,11 +16,14 @@ namespace BLL_Library
             this.dbAccess = new DbAccess();
         }
 
+        public List<New> getNews()
+        {
+            return dbAccess.getNews();
+        }
+
         public List<New> getNews(User author) {
             List<New> listNews = null;
-            var rightJournalist = dbAccess.getRights().Where<Right>(r => r.Name == "Journalist");
-            int i = rightJournalist.First<Right>().Id;
-            if (author.Right == i) {
+            if (isJournalist(author)) {
                 IEnumerable<New> news = dbAccess.getNews().Where<New>(n => n.Author == author.Id);
                 listNews = news.ToList<New>();
             }
@@ -36,6 +39,17 @@ namespace BLL_Library
                 user = users.First<User>();
             }
             return user;
+        }
+
+        public void addJournalist(string firstName, string lastName, string userName, string password)
+        {
+            User user = new User();
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.UserName = userName;
+            user.Password = password;
+
+            dbAccess.addUsers(user);
         }
 
         public bool isJournalist(User user)
