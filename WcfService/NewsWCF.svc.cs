@@ -15,12 +15,12 @@ namespace WcfService
 
         public int createUser(string username, string password)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public int connectUser(string username, string password)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public List<New> getNews()

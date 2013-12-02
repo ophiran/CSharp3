@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fd6d5c14-fa00-4f12-aebb-634a11233923" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12288/NewsWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsWCF.disco" MetadataType="Disco" ID="8e41a4e6-4f2b-4e31-9138-613ee213f89b" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?disco" />
+    <MetadataFile FileName="NewsWCF.xsd" MetadataType="Schema" ID="8a70897e-cf7d-476b-8b74-f27151d19404" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="NewsWCF1.xsd" MetadataType="Schema" ID="6480d568-72b4-4524-9735-394b667649f1" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsWCF2.xsd" MetadataType="Schema" ID="f3a64e9b-fe9f-429d-9a06-4e6de7e267bc" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsWCF3.xsd" MetadataType="Schema" ID="a2b2d408-f649-4854-b51b-477bde4b6bd9" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewsWCF.wsdl" MetadataType="Wsdl" ID="a0ada67b-2d6a-484c-90c3-fa71029429d3" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
