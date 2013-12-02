@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Home.NewsService;
 
 namespace WPF_Home
 {
@@ -23,6 +24,7 @@ namespace WPF_Home
         public MainWindow()
         {
             InitializeComponent();
+            NewsWCFClient 
 
 
         }

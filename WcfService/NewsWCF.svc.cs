@@ -13,7 +13,7 @@ namespace WcfService
     // NOTE: In order to launch WCF Test Client for testing this service, please select NewsWCF.svc or NewsWCF.svc.cs at the Solution Explorer and start debugging.
     public class NewsWCF : INewsWCF
     {
-        private blAccess bl;
+        private blAccess bl = new blAccess();
 
         public void createUser(string firstname, string lastname, string username, string password)
         {
