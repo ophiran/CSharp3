@@ -20,19 +20,42 @@ namespace WcfService
             bl.addJournalist(firstname, lastname, username, password);
         }
 
-        public User connectUser(string username, string password)
+        public People connectUser(string username, string password)
         {
-            return bl.getUser(username, password);
+            User user = bl.getUser(username, password);
+            if (user != null)
+                return new People(user);
+            else
+                return null;
         }
 
-        public List<New> getNews()
+        public List<News> getNews()
         {
-            return bl.getNews();
+            List<News> newsList = new List<News>();
+            foreach (New n in bl.getNews())
+            {
+                if (n != null)
+                    newsList.Add(new News(n));
+            }
+            return newsList;
         }
 
-        public List<New> getHistoric(User user)
+        public List<News> getHistoric(People people)
         {
-            return bl.getNews(user);
+            User user = new User();
+            user.FirstName = people.FirstName;
+            user.LastName = people.LastName;
+            user.UserName = people.UserName;
+            user.Password = people.Password;
+            user.Right = people.Right;
+
+            List<News> newsList = new List<News>();
+            foreach (New n in bl.getNews(user))
+            {
+                if (n != null)
+                    newsList.Add(new News(n));
+            }
+            return newsList;
         }
 
 

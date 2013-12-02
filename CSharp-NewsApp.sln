@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL-Library", "DAL-Library\DAL-Library.csproj", "{E4D18384-E487-4366-8A71-DB6B0195ED41}"
 EndProject
@@ -15,12 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF@Home", "WPF@Home\WPF@Ho
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsService\WindowsService.csproj", "{98637E3C-0422-4D82-81E5-446CA109D3B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{863A2731-F861-4880-BDAA-6A19593C033D} = {863A2731-F861-4880-BDAA-6A19593C033D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{863A2731-F861-4880-BDAA-6A19593C033D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testBLL", "testBLL\testBLL.csproj", "{3BDBD4C4-5F56-4423-9D16-696220C9015A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLCreator", "XMLCreator\XMLCreator.csproj", "{65DF6872-B14C-475A-9A17-4EB48A39702C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,14 +51,6 @@ Global
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BDBD4C4-5F56-4423-9D16-696220C9015A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BDBD4C4-5F56-4423-9D16-696220C9015A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BDBD4C4-5F56-4423-9D16-696220C9015A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BDBD4C4-5F56-4423-9D16-696220C9015A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

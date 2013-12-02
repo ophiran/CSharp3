@@ -121,9 +121,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\NewsService\NewsWCF.wsdl" />
-    <None Include="Service References\NewsService\NewsWCF.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\NewsService\NewsWCF1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -133,7 +130,10 @@
     <None Include="Service References\NewsService\NewsWCF3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewsService\WPF_Home.NewsService.New.datasource">
+    <None Include="Service References\NewsService\WPF_Home.NewsService.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewsService\WPF_Home.NewsService.People.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

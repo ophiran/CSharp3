@@ -4,8 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DAL_Library" />
-      <xsd:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq" />
+      <xsd:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="INewsWCF_createUser_InputMessage">
@@ -32,6 +31,12 @@
   <wsdl:message name="INewsWCF_getHistoric_OutputMessage">
     <wsdl:part name="parameters" element="tns:getHistoricResponse" />
   </wsdl:message>
+  <wsdl:message name="INewsWCF_getNewsStub_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNewsStub" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getNewsStub_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNewsStubResponse" />
+  </wsdl:message>
   <wsdl:portType name="INewsWCF">
     <wsdl:operation name="createUser">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/createUser" message="tns:INewsWCF_createUser_InputMessage" />
@@ -48,6 +53,10 @@
     <wsdl:operation name="getHistoric">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getHistoric" message="tns:INewsWCF_getHistoric_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getHistoricResponse" message="tns:INewsWCF_getHistoric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNewsStub">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getNewsStub" message="tns:INewsWCF_getNewsStub_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getNewsStubResponse" message="tns:INewsWCF_getNewsStub_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INewsWCF" type="tns:INewsWCF">
@@ -81,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="getHistoric">
       <soap:operation soapAction="http://tempuri.org/INewsWCF/getHistoric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNewsStub">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/getNewsStub" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -32,9 +32,16 @@ namespace WPF_Home
 
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
-            //proxy.connectUser(this.userTb, this.passwordTb);
-            
-            //this.
+            People p = proxy.connectUser(this.userTb.Text, this.passwordTb.Password);
+            if (p != null)
+            {
+                Console.Out.WriteLine("Your are sucessfully connected");
+            }
+            else
+            {
+                Console.Out.WriteLine("Wrong credentials");
+            }
+
         }
     }
 }

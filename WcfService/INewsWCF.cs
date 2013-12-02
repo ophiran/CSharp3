@@ -16,13 +16,13 @@ namespace WcfService
         void createUser(String firstname, String lastname, String username, String password);
 
         [OperationContract]
-        User connectUser(String username, String password);
+        People connectUser(String username, String password);
 
         [OperationContract]
-        List<New> getNews();
+        List<News> getNews();
 
         [OperationContract]
-        List<New> getHistoric(User user);
+        List<News> getHistoric(People user);
 
         [OperationContract]
         List<News> getNewsStub(); //debug
@@ -33,6 +33,13 @@ namespace WcfService
     [DataContract]
     public class News
     {
+        public News(New n)
+        {
+            this.Author = n.Author;
+            this.Title = n.Title;
+            this.SubTitle = n.SubTitle;
+            this.Body = n.Text;
+        }
         [DataMember]
         public String Title { get; set; }
 
@@ -41,5 +48,36 @@ namespace WcfService
         
         [DataMember]
         public String Body { get; set; }
+
+        [DataMember]
+        public int? Author { get; set; }
+    }
+
+    [DataContract]
+    public class People
+    {
+        public People(User user)
+        {
+            this.FirstName = user.FirstName;
+            this.LastName = user.LastName;
+            this.Password = user.Password;
+            this.UserName = user.UserName;
+            this.Right = user.Right;
+        }
+
+        [DataMember]
+        public String FirstName { get; set; }
+
+        [DataMember]
+        public String LastName { get; set; }
+
+        [DataMember]
+        public String UserName { get; set; }
+
+        [DataMember]
+        public String Password { get; set; }
+
+        [DataMember]
+        public int Right { get; set; }
     }
 }
