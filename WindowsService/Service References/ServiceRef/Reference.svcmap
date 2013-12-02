@@ -22,9 +22,12 @@
     <MetadataSource Address="http://localhost:12288/NewsWCF.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="NewsWCF4.xsd" MetadataType="Schema" ID="ffe587b1-66c3-40ec-b317-93067239f190" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd4" />
     <MetadataFile FileName="NewsWCF.disco" MetadataType="Disco" ID="8e41a4e6-4f2b-4e31-9138-613ee213f89b" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?disco" />
     <MetadataFile FileName="NewsWCF.xsd" MetadataType="Schema" ID="8a70897e-cf7d-476b-8b74-f27151d19404" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="NewsWCF41.xsd" MetadataType="Schema" ID="7839012f-a5bd-4414-b999-00058f49b750" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd5" />
     <MetadataFile FileName="NewsWCF1.xsd" MetadataType="Schema" ID="6480d568-72b4-4524-9735-394b667649f1" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsWCF5.xsd" MetadataType="Schema" ID="77d411b9-66ee-48fa-8198-9a0da2ecb825" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd6" />
     <MetadataFile FileName="NewsWCF2.xsd" MetadataType="Schema" ID="f3a64e9b-fe9f-429d-9a06-4e6de7e267bc" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd2" />
     <MetadataFile FileName="NewsWCF3.xsd" MetadataType="Schema" ID="a2b2d408-f649-4854-b51b-477bde4b6bd9" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?xsd=xsd1" />
     <MetadataFile FileName="NewsWCF.wsdl" MetadataType="Wsdl" ID="a0ada67b-2d6a-484c-90c3-fa71029429d3" SourceId="1" SourceUrl="http://localhost:12288/NewsWCF.svc?wsdl" />

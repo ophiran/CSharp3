@@ -57,6 +57,10 @@
       <Project>{e4d18384-e487-4366-8a71-db6b0195ed41}</Project>
       <Name>DAL-Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WcfService\WcfService.csproj">
+      <Project>{863a2731-f861-4880-bdaa-6a19593c033d}</Project>
+      <Name>WcfService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

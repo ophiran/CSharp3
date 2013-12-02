@@ -61,12 +61,14 @@ namespace WindowsService
 
         private void xmlFileWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
+            
             systemLog.WriteEntry("A file has been modified or added - " + e.Name);
             try
             {
                 String test = "";
                 test += proxy.connectUser("", "");
                 systemLog.WriteEntry(test);
+                
             }
             catch (Exception ex)
             {

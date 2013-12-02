@@ -23,5 +23,23 @@ namespace WcfService
 
         [OperationContract]
         List<New> getHistoric(User user);
+
+        [OperationContract]
+        List<News> getNewsStub(); //debug
+
+    }
+
+
+    [DataContract]
+    public class News
+    {
+        [DataMember]
+        public String Title { get; set; }
+
+        [DataMember]
+        public String SubTitle { get; set; }
+        
+        [DataMember]
+        public String Body { get; set; }
     }
 }

@@ -34,5 +34,11 @@ namespace WcfService
         {
             return bl.getNews(user);
         }
+
+
+        public List<News> getNewsStub()
+        {
+            return null;
+        }
     }
 }

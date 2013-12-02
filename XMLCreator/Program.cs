@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DAL_Library;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace XMLCreator
 {
@@ -26,8 +28,7 @@ namespace XMLCreator
             test.Text = "bla bla bla 2";
             test.Title = "Title num 2";
 
-            doc = new XElement("News", test);
-            doc.Save("C:\\xmlFileWatcherCSharp\\test2.xml");
+            //News 
         }
     }
 }

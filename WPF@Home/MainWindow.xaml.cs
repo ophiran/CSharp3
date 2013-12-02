@@ -32,7 +32,7 @@ namespace WPF_Home
 
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
-            proxy.connectUser(this.userTb, this.passwordTb);
+            //proxy.connectUser(this.userTb, this.passwordTb);
             
             //this.
         }

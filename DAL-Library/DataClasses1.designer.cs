@@ -20,6 +20,7 @@ namespace DAL_Library
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
+    using System.Runtime.Serialization;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbCSharp")]
@@ -139,7 +140,8 @@ namespace DAL_Library
 			}
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
 	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -301,7 +303,8 @@ namespace DAL_Library
 			entity.Image1 = null;
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NewsImages")]
 	public partial class NewsImage : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -469,7 +472,8 @@ namespace DAL_Library
 			}
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rights")]
 	public partial class Right : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -583,7 +587,8 @@ namespace DAL_Library
 			entity.Right1 = null;
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Types")]
 	public partial class Type : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -697,7 +702,8 @@ namespace DAL_Library
 			entity.Type = null;
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Articles")]
 	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1009,7 +1015,8 @@ namespace DAL_Library
 			}
 		}
 	}
-	
+    [Serializable]
+	[DataContract]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.News")]
 	public partial class New : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1061,6 +1068,7 @@ namespace DAL_Library
 			OnCreated();
 		}
 		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Id
 		{
@@ -1080,7 +1088,7 @@ namespace DAL_Library
 				}
 			}
 		}
-		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
 		public string Title
 		{
@@ -1100,7 +1108,7 @@ namespace DAL_Library
 				}
 			}
 		}
-		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTitle", DbType="VarChar(50)")]
 		public string SubTitle
 		{
@@ -1120,7 +1128,7 @@ namespace DAL_Library
 				}
 			}
 		}
-		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(MAX)")]
 		public string Text
 		{
@@ -1160,7 +1168,7 @@ namespace DAL_Library
 				}
 			}
 		}
-		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepositDate", DbType="Date")]
 		public System.Nullable<System.DateTime> DepositDate
 		{
@@ -1180,7 +1188,7 @@ namespace DAL_Library
 				}
 			}
 		}
-		
+        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="Int")]
 		public System.Nullable<int> Author
 		{
@@ -1284,7 +1292,8 @@ namespace DAL_Library
 			entity.New = null;
 		}
 	}
-	
+
+    [Serializable]
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{

@@ -81,7 +81,22 @@
     <None Include="Service References\ServiceRef\NewsWCF3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceRef\NewsWCF4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRef\NewsWCF41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRef\NewsWCF5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceRef\WindowsService.ServiceRef.New.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceRef\WindowsService.ServiceRef.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceRef\WindowsService.ServiceRef.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
