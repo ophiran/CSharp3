@@ -22,6 +22,6 @@ namespace WcfService
         List<New> getNews();
 
         [OperationContract]
-        List<New> getHistoric(int userId);
+        List<New> getHistoric(User user);
     }
 }

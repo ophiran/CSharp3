@@ -21,17 +21,18 @@ namespace WPF_Home
     /// </summary>
     public partial class MainWindow : Window
     {
+        public NewsWCFClient proxy;
         public MainWindow()
         {
             InitializeComponent();
-            NewsWCFClient 
+            proxy = new NewsWCFClient();
 
 
         }
 
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
-
+            proxy.connectUser(this.userTb, this.passwordTb);
             
             //this.
         }

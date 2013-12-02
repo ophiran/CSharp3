@@ -10,8 +10,8 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Button Content="Connect" HorizontalAlignment="Left" Height="33" Margin="433,111,0,0" VerticalAlignment="Top" Width="185" FontFamily="Arial Black" Click="Connect_Click"/>
-        <PasswordBox HorizontalAlignment="Left" Height="33" Margin="192,111,0,0" VerticalAlignment="Top" Width="194" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="192,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" FontSize="24" FontFamily="Arial Black"/>
+        <PasswordBox x:Name="passwordTb" HorizontalAlignment="Left" Height="33" Margin="192,111,0,0" VerticalAlignment="Top" Width="194" FontSize="24"/>
+        <TextBox x:Name="userTb" HorizontalAlignment="Left" Height="33" Margin="192,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" FontSize="24" FontFamily="Arial Black"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="37,63,0,0" VerticalAlignment="Top" Width="150" FontFamily="Arial Black" FontSize="24" RenderTransformOrigin="0.354,0.447" Foreground="Black" BorderThickness="0"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="37,111,0,0" VerticalAlignment="Top" Width="139" FontSize="24" FontFamily="Arial Black"/>
 
