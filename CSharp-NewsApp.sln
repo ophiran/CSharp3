@@ -15,8 +15,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF@Home", "WPF@Home\WPF@Ho
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsService\WindowsService.csproj", "{98637E3C-0422-4D82-81E5-446CA109D3B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{863A2731-F861-4880-BDAA-6A19593C033D} = {863A2731-F861-4880-BDAA-6A19593C033D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{863A2731-F861-4880-BDAA-6A19593C033D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLCreator", "XMLCreator\XMLCreator.csproj", "{65DF6872-B14C-475A-9A17-4EB48A39702C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{863A2731-F861-4880-BDAA-6A19593C033D} = {863A2731-F861-4880-BDAA-6A19593C033D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +56,10 @@ Global
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863A2731-F861-4880-BDAA-6A19593C033D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65DF6872-B14C-475A-9A17-4EB48A39702C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
