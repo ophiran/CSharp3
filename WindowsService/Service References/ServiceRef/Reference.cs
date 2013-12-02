@@ -15,507 +15,27 @@ namespace WindowsService.ServiceRef {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/DAL_Library")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="People", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
     [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.ComponentModel.PropertyChangedEventHandler PropertyChanged1Field;
-        
-        private System.ComponentModel.PropertyChangingEventHandler PropertyChangingField;
-        
-        private WindowsService.ServiceRef.Article[] _ArticlesField;
-        
-        private System.Nullable<System.DateTime> _BirthDateField;
-        
-        private string _FirstNameField;
-        
-        private int _IdField;
-        
-        private string _LastNameField;
-        
-        private string _MailAddressField;
-        
-        private WindowsService.ServiceRef.New[] _NewsField;
-        
-        private string _PasswordField;
-        
-        private int _RightField;
-        
-        private WindowsService.ServiceRef.EntityRefOfRightvWSB3Z2k _Right1Field;
-        
-        private string _UserNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="PropertyChanged", IsRequired=true)]
-        public System.ComponentModel.PropertyChangedEventHandler PropertyChanged1 {
-            get {
-                return this.PropertyChanged1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChanged1Field, value) != true)) {
-                    this.PropertyChanged1Field = value;
-                    this.RaisePropertyChanged("PropertyChanged1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.ComponentModel.PropertyChangingEventHandler PropertyChanging {
-            get {
-                return this.PropertyChangingField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChangingField, value) != true)) {
-                    this.PropertyChangingField = value;
-                    this.RaisePropertyChanged("PropertyChanging");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.Article[] _Articles {
-            get {
-                return this._ArticlesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._ArticlesField, value) != true)) {
-                    this._ArticlesField = value;
-                    this.RaisePropertyChanged("_Articles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Nullable<System.DateTime> _BirthDate {
-            get {
-                return this._BirthDateField;
-            }
-            set {
-                if ((this._BirthDateField.Equals(value) != true)) {
-                    this._BirthDateField = value;
-                    this.RaisePropertyChanged("_BirthDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _FirstName {
-            get {
-                return this._FirstNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._FirstNameField, value) != true)) {
-                    this._FirstNameField = value;
-                    this.RaisePropertyChanged("_FirstName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _Id {
-            get {
-                return this._IdField;
-            }
-            set {
-                if ((this._IdField.Equals(value) != true)) {
-                    this._IdField = value;
-                    this.RaisePropertyChanged("_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _LastName {
-            get {
-                return this._LastNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._LastNameField, value) != true)) {
-                    this._LastNameField = value;
-                    this.RaisePropertyChanged("_LastName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _MailAddress {
-            get {
-                return this._MailAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._MailAddressField, value) != true)) {
-                    this._MailAddressField = value;
-                    this.RaisePropertyChanged("_MailAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.New[] _News {
-            get {
-                return this._NewsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._NewsField, value) != true)) {
-                    this._NewsField = value;
-                    this.RaisePropertyChanged("_News");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Password {
-            get {
-                return this._PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._PasswordField, value) != true)) {
-                    this._PasswordField = value;
-                    this.RaisePropertyChanged("_Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _Right {
-            get {
-                return this._RightField;
-            }
-            set {
-                if ((this._RightField.Equals(value) != true)) {
-                    this._RightField = value;
-                    this.RaisePropertyChanged("_Right");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.EntityRefOfRightvWSB3Z2k _Right1 {
-            get {
-                return this._Right1Field;
-            }
-            set {
-                if ((this._Right1Field.Equals(value) != true)) {
-                    this._Right1Field = value;
-                    this.RaisePropertyChanged("_Right1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _UserName {
-            get {
-                return this._UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._UserNameField, value) != true)) {
-                    this._UserNameField = value;
-                    this.RaisePropertyChanged("_UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityRefOfRightvWSB3Z2k", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
-    [System.SerializableAttribute()]
-    public partial struct EntityRefOfRightvWSB3Z2k : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class People : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsService.ServiceRef.Right EntityField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsService.ServiceRef.Right Entity {
-            get {
-                return this.EntityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityField, value) != true)) {
-                    this.EntityField = value;
-                    this.RaisePropertyChanged("Entity");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Article", Namespace="http://schemas.datacontract.org/2004/07/DAL_Library")]
-    [System.SerializableAttribute()]
-    public partial class Article : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.ComponentModel.PropertyChangedEventHandler PropertyChanged1Field;
-        
-        private System.ComponentModel.PropertyChangingEventHandler PropertyChangingField;
-        
-        private System.Nullable<int> _AuthorField;
-        
-        private System.Nullable<System.DateTime> _DepositDateField;
-        
-        private int _IdField;
-        
-        private string _OverviewField;
-        
-        private System.Nullable<int> _RefTypeField;
-        
-        private string _SubTitleField;
-        
-        private string _TextField;
-        
-        private string _TitleField;
-        
-        private WindowsService.ServiceRef.EntityRefOfTypevWSB3Z2k _TypeField;
-        
-        private WindowsService.ServiceRef.EntityRefOfUservWSB3Z2k _UserField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="PropertyChanged", IsRequired=true)]
-        public System.ComponentModel.PropertyChangedEventHandler PropertyChanged1 {
-            get {
-                return this.PropertyChanged1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChanged1Field, value) != true)) {
-                    this.PropertyChanged1Field = value;
-                    this.RaisePropertyChanged("PropertyChanged1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.ComponentModel.PropertyChangingEventHandler PropertyChanging {
-            get {
-                return this.PropertyChangingField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChangingField, value) != true)) {
-                    this.PropertyChangingField = value;
-                    this.RaisePropertyChanged("PropertyChanging");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Nullable<int> _Author {
-            get {
-                return this._AuthorField;
-            }
-            set {
-                if ((this._AuthorField.Equals(value) != true)) {
-                    this._AuthorField = value;
-                    this.RaisePropertyChanged("_Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Nullable<System.DateTime> _DepositDate {
-            get {
-                return this._DepositDateField;
-            }
-            set {
-                if ((this._DepositDateField.Equals(value) != true)) {
-                    this._DepositDateField = value;
-                    this.RaisePropertyChanged("_DepositDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _Id {
-            get {
-                return this._IdField;
-            }
-            set {
-                if ((this._IdField.Equals(value) != true)) {
-                    this._IdField = value;
-                    this.RaisePropertyChanged("_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Overview {
-            get {
-                return this._OverviewField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._OverviewField, value) != true)) {
-                    this._OverviewField = value;
-                    this.RaisePropertyChanged("_Overview");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Nullable<int> _RefType {
-            get {
-                return this._RefTypeField;
-            }
-            set {
-                if ((this._RefTypeField.Equals(value) != true)) {
-                    this._RefTypeField = value;
-                    this.RaisePropertyChanged("_RefType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _SubTitle {
-            get {
-                return this._SubTitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._SubTitleField, value) != true)) {
-                    this._SubTitleField = value;
-                    this.RaisePropertyChanged("_SubTitle");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Text {
-            get {
-                return this._TextField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._TextField, value) != true)) {
-                    this._TextField = value;
-                    this.RaisePropertyChanged("_Text");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Title {
-            get {
-                return this._TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._TitleField, value) != true)) {
-                    this._TitleField = value;
-                    this.RaisePropertyChanged("_Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.EntityRefOfTypevWSB3Z2k _Type {
-            get {
-                return this._TypeField;
-            }
-            set {
-                if ((this._TypeField.Equals(value) != true)) {
-                    this._TypeField = value;
-                    this.RaisePropertyChanged("_Type");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.EntityRefOfUservWSB3Z2k _User {
-            get {
-                return this._UserField;
-            }
-            set {
-                if ((this._UserField.Equals(value) != true)) {
-                    this._UserField = value;
-                    this.RaisePropertyChanged("_User");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="New", Namespace="http://schemas.datacontract.org/2004/07/DAL_Library")]
-    [System.SerializableAttribute()]
-    public partial class New : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> AuthorField;
+        private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> DepositDateField;
+        private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private int RightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SubTitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TextField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
+        private string UserNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -528,375 +48,66 @@ namespace WindowsService.ServiceRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Author {
+        public string FirstName {
             get {
-                return this.AuthorField;
+                return this.FirstNameField;
             }
             set {
-                if ((this.AuthorField.Equals(value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> DepositDate {
+        public string LastName {
             get {
-                return this.DepositDateField;
+                return this.LastNameField;
             }
             set {
-                if ((this.DepositDateField.Equals(value) != true)) {
-                    this.DepositDateField = value;
-                    this.RaisePropertyChanged("DepositDate");
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public string Password {
             get {
-                return this.IdField;
+                return this.PasswordField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SubTitle {
+        public int Right {
             get {
-                return this.SubTitleField;
+                return this.RightField;
             }
             set {
-                if ((object.ReferenceEquals(this.SubTitleField, value) != true)) {
-                    this.SubTitleField = value;
-                    this.RaisePropertyChanged("SubTitle");
+                if ((this.RightField.Equals(value) != true)) {
+                    this.RightField = value;
+                    this.RaisePropertyChanged("Right");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Text {
+        public string UserName {
             get {
-                return this.TextField;
+                return this.UserNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.TextField, value) != true)) {
-                    this.TextField = value;
-                    this.RaisePropertyChanged("Text");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityRefOfTypevWSB3Z2k", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
-    [System.SerializableAttribute()]
-    public partial struct EntityRefOfTypevWSB3Z2k : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsService.ServiceRef.Type EntityField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsService.ServiceRef.Type Entity {
-            get {
-                return this.EntityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityField, value) != true)) {
-                    this.EntityField = value;
-                    this.RaisePropertyChanged("Entity");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityRefOfUservWSB3Z2k", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq")]
-    [System.SerializableAttribute()]
-    public partial struct EntityRefOfUservWSB3Z2k : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsService.ServiceRef.User EntityField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsService.ServiceRef.User Entity {
-            get {
-                return this.EntityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityField, value) != true)) {
-                    this.EntityField = value;
-                    this.RaisePropertyChanged("Entity");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Type", Namespace="http://schemas.datacontract.org/2004/07/DAL_Library")]
-    [System.SerializableAttribute()]
-    public partial class Type : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.ComponentModel.PropertyChangedEventHandler PropertyChanged1Field;
-        
-        private System.ComponentModel.PropertyChangingEventHandler PropertyChangingField;
-        
-        private WindowsService.ServiceRef.Article[] _ArticlesField;
-        
-        private int _IdField;
-        
-        private string _Type1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="PropertyChanged", IsRequired=true)]
-        public System.ComponentModel.PropertyChangedEventHandler PropertyChanged1 {
-            get {
-                return this.PropertyChanged1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChanged1Field, value) != true)) {
-                    this.PropertyChanged1Field = value;
-                    this.RaisePropertyChanged("PropertyChanged1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.ComponentModel.PropertyChangingEventHandler PropertyChanging {
-            get {
-                return this.PropertyChangingField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChangingField, value) != true)) {
-                    this.PropertyChangingField = value;
-                    this.RaisePropertyChanged("PropertyChanging");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.Article[] _Articles {
-            get {
-                return this._ArticlesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._ArticlesField, value) != true)) {
-                    this._ArticlesField = value;
-                    this.RaisePropertyChanged("_Articles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _Id {
-            get {
-                return this._IdField;
-            }
-            set {
-                if ((this._IdField.Equals(value) != true)) {
-                    this._IdField = value;
-                    this.RaisePropertyChanged("_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Type1 {
-            get {
-                return this._Type1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this._Type1Field, value) != true)) {
-                    this._Type1Field = value;
-                    this.RaisePropertyChanged("_Type1");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Right", Namespace="http://schemas.datacontract.org/2004/07/DAL_Library")]
-    [System.SerializableAttribute()]
-    public partial class Right : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.ComponentModel.PropertyChangedEventHandler PropertyChanged1Field;
-        
-        private System.ComponentModel.PropertyChangingEventHandler PropertyChangingField;
-        
-        private int _IdField;
-        
-        private string _NameField;
-        
-        private WindowsService.ServiceRef.User[] _UsersField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="PropertyChanged", IsRequired=true)]
-        public System.ComponentModel.PropertyChangedEventHandler PropertyChanged1 {
-            get {
-                return this.PropertyChanged1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChanged1Field, value) != true)) {
-                    this.PropertyChanged1Field = value;
-                    this.RaisePropertyChanged("PropertyChanged1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.ComponentModel.PropertyChangingEventHandler PropertyChanging {
-            get {
-                return this.PropertyChangingField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertyChangingField, value) != true)) {
-                    this.PropertyChangingField = value;
-                    this.RaisePropertyChanged("PropertyChanging");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int _Id {
-            get {
-                return this._IdField;
-            }
-            set {
-                if ((this._IdField.Equals(value) != true)) {
-                    this._IdField = value;
-                    this.RaisePropertyChanged("_Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string _Name {
-            get {
-                return this._NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._NameField, value) != true)) {
-                    this._NameField = value;
-                    this.RaisePropertyChanged("_Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public WindowsService.ServiceRef.User[] _Users {
-            get {
-                return this._UsersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._UsersField, value) != true)) {
-                    this._UsersField = value;
-                    this.RaisePropertyChanged("_Users");
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
                 }
             }
         }
@@ -921,6 +132,9 @@ namespace WindowsService.ServiceRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> AuthorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BodyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -936,6 +150,19 @@ namespace WindowsService.ServiceRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Author {
+            get {
+                return this.AuthorField;
+            }
+            set {
+                if ((this.AuthorField.Equals(value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
+                }
             }
         }
         
@@ -999,22 +226,22 @@ namespace WindowsService.ServiceRef {
         System.Threading.Tasks.Task createUserAsync(string firstname, string lastname, string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/connectUser", ReplyAction="http://tempuri.org/INewsWCF/connectUserResponse")]
-        WindowsService.ServiceRef.User connectUser(string username, string password);
+        WindowsService.ServiceRef.People connectUser(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/connectUser", ReplyAction="http://tempuri.org/INewsWCF/connectUserResponse")]
-        System.Threading.Tasks.Task<WindowsService.ServiceRef.User> connectUserAsync(string username, string password);
+        System.Threading.Tasks.Task<WindowsService.ServiceRef.People> connectUserAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNews", ReplyAction="http://tempuri.org/INewsWCF/getNewsResponse")]
-        WindowsService.ServiceRef.New[] getNews();
+        WindowsService.ServiceRef.News[] getNews();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNews", ReplyAction="http://tempuri.org/INewsWCF/getNewsResponse")]
-        System.Threading.Tasks.Task<WindowsService.ServiceRef.New[]> getNewsAsync();
+        System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getNewsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getHistoric", ReplyAction="http://tempuri.org/INewsWCF/getHistoricResponse")]
-        WindowsService.ServiceRef.New[] getHistoric(WindowsService.ServiceRef.User user);
+        WindowsService.ServiceRef.News[] getHistoric(WindowsService.ServiceRef.People user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getHistoric", ReplyAction="http://tempuri.org/INewsWCF/getHistoricResponse")]
-        System.Threading.Tasks.Task<WindowsService.ServiceRef.New[]> getHistoricAsync(WindowsService.ServiceRef.User user);
+        System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getHistoricAsync(WindowsService.ServiceRef.People user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNewsStub", ReplyAction="http://tempuri.org/INewsWCF/getNewsStubResponse")]
         WindowsService.ServiceRef.News[] getNewsStub();
@@ -1058,27 +285,27 @@ namespace WindowsService.ServiceRef {
             return base.Channel.createUserAsync(firstname, lastname, username, password);
         }
         
-        public WindowsService.ServiceRef.User connectUser(string username, string password) {
+        public WindowsService.ServiceRef.People connectUser(string username, string password) {
             return base.Channel.connectUser(username, password);
         }
         
-        public System.Threading.Tasks.Task<WindowsService.ServiceRef.User> connectUserAsync(string username, string password) {
+        public System.Threading.Tasks.Task<WindowsService.ServiceRef.People> connectUserAsync(string username, string password) {
             return base.Channel.connectUserAsync(username, password);
         }
         
-        public WindowsService.ServiceRef.New[] getNews() {
+        public WindowsService.ServiceRef.News[] getNews() {
             return base.Channel.getNews();
         }
         
-        public System.Threading.Tasks.Task<WindowsService.ServiceRef.New[]> getNewsAsync() {
+        public System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getNewsAsync() {
             return base.Channel.getNewsAsync();
         }
         
-        public WindowsService.ServiceRef.New[] getHistoric(WindowsService.ServiceRef.User user) {
+        public WindowsService.ServiceRef.News[] getHistoric(WindowsService.ServiceRef.People user) {
             return base.Channel.getHistoric(user);
         }
         
-        public System.Threading.Tasks.Task<WindowsService.ServiceRef.New[]> getHistoricAsync(WindowsService.ServiceRef.User user) {
+        public System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getHistoricAsync(WindowsService.ServiceRef.People user) {
             return base.Channel.getHistoricAsync(user);
         }
         

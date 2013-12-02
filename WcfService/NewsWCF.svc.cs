@@ -58,10 +58,11 @@ namespace WcfService
             return newsList;
         }
 
-
-        public List<News> getNewsStub()
+        public void sendNews(News news)
         {
-            return null;
+            New newsDb = new New();
+            
+
         }
     }
 }

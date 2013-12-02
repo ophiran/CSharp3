@@ -25,7 +25,8 @@ namespace WcfService
         List<News> getHistoric(People user);
 
         [OperationContract]
-        List<News> getNewsStub(); //debug
+        void sendNews(News news);
+
 
     }
 
@@ -33,6 +34,10 @@ namespace WcfService
     [DataContract]
     public class News
     {
+        public News()
+        {
+
+        }
         public News(New n)
         {
             this.Author = n.Author;

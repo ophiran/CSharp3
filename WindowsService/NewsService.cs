@@ -68,6 +68,11 @@ namespace WindowsService
             IEnumerable<XElement> iterator = doc.Descendants("News");
             foreach (XElement elem in iterator)
             {
+                news = new News();
+                news.Title = elem.Element("Title").Value;
+                news.SubTitle = elem.Element("SubTitle").Value;
+                news.Body = elem.Element("Body").Value;
+                news.Author = Convert.ToInt32(elem.Element("Author").Value);
                 
                 systemLog.WriteEntry(elem.Element("Title").Value);
             }

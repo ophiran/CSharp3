@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DAL_Library" />
-  <xs:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+  <xs:import schemaLocation="http://localhost:12288/NewsWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
   <xs:element name="createUser">
     <xs:complexType>
       <xs:sequence>
@@ -28,7 +27,7 @@
   <xs:element name="connectUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DAL_Library" minOccurs="0" name="connectUserResult" nillable="true" type="q1:User" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="connectUserResult" nillable="true" type="q1:People" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,21 +39,21 @@
   <xs:element name="getNewsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DAL_Library" minOccurs="0" name="getNewsResult" nillable="true" type="q2:ArrayOfNew" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="getNewsResult" nillable="true" type="q2:ArrayOfNews" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getHistoric">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DAL_Library" minOccurs="0" name="user" nillable="true" type="q3:User" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="user" nillable="true" type="q3:People" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getHistoricResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DAL_Library" minOccurs="0" name="getHistoricResult" nillable="true" type="q4:ArrayOfNew" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="getHistoricResult" nillable="true" type="q4:ArrayOfNews" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

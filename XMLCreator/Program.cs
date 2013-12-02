@@ -32,7 +32,9 @@ namespace XMLCreator
             News news = new News();
             news.Title = "test3";
             news.SubTitle = "subtitle 3";
-            news.Body = "Body 3";/*
+            news.Body = "Body 3";
+            news.Author = 3;
+            /*
             XmlSerializer ser = new XmlSerializer(typeof(News));
             TextWriter textWriter = new StreamWriter("C:\\xmlFileWatcherCSharp\\test3.xml");
             ser.Serialize(textWriter, news);

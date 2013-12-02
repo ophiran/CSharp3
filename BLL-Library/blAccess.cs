@@ -79,5 +79,10 @@ namespace BLL_Library
             return user;
         }
 
+        public void addNews(New news)
+        {
+            dbAccess.addNews(news);
+        }
+
     }
 }
