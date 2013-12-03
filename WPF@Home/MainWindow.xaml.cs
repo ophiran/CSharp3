@@ -21,7 +21,7 @@ namespace WPF_Home
     /// </summary>
     public partial class MainWindow : Window
     {
-        public NewsWCFClient proxy;
+        static public NewsWCFClient proxy;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace WPF_Home
             if (p != null)
             {
                 Console.Out.WriteLine("Your are sucessfully connected");
+                this.Content = new MainPage(p);
             }
             else
             {

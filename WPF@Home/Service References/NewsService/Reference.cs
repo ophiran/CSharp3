@@ -26,6 +26,9 @@ namespace WPF_Home.NewsService {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -56,6 +59,19 @@ namespace WPF_Home.NewsService {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -243,11 +259,11 @@ namespace WPF_Home.NewsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getHistoric", ReplyAction="http://tempuri.org/INewsWCF/getHistoricResponse")]
         System.Threading.Tasks.Task<WPF_Home.NewsService.News[]> getHistoricAsync(WPF_Home.NewsService.People user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNewsStub", ReplyAction="http://tempuri.org/INewsWCF/getNewsStubResponse")]
-        WPF_Home.NewsService.News[] getNewsStub();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
+        void sendNews(WPF_Home.NewsService.News news, WPF_Home.NewsService.People people);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNewsStub", ReplyAction="http://tempuri.org/INewsWCF/getNewsStubResponse")]
-        System.Threading.Tasks.Task<WPF_Home.NewsService.News[]> getNewsStubAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
+        System.Threading.Tasks.Task sendNewsAsync(WPF_Home.NewsService.News news, WPF_Home.NewsService.People people);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -309,12 +325,12 @@ namespace WPF_Home.NewsService {
             return base.Channel.getHistoricAsync(user);
         }
         
-        public WPF_Home.NewsService.News[] getNewsStub() {
-            return base.Channel.getNewsStub();
+        public void sendNews(WPF_Home.NewsService.News news, WPF_Home.NewsService.People people) {
+            base.Channel.sendNews(news, people);
         }
         
-        public System.Threading.Tasks.Task<WPF_Home.NewsService.News[]> getNewsStubAsync() {
-            return base.Channel.getNewsStubAsync();
+        public System.Threading.Tasks.Task sendNewsAsync(WPF_Home.NewsService.News news, WPF_Home.NewsService.People people) {
+            return base.Channel.sendNewsAsync(news, people);
         }
     }
 }

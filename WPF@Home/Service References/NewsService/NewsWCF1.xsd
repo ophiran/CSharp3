@@ -57,16 +57,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getNewsStub">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getNewsStubResponse">
+  <xs:element name="sendNews">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="getNewsStubResult" nillable="true" type="q5:ArrayOfNews" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="news" nillable="true" type="q5:News" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService" minOccurs="0" name="people" nillable="true" type="q6:People" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sendNewsResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

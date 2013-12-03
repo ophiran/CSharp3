@@ -44,6 +44,7 @@ namespace WcfService
             this.Title = n.Title;
             this.SubTitle = n.SubTitle;
             this.Body = n.Text;
+            this.Author = n.Author;
         }
         [DataMember]
         public String Title { get; set; }
@@ -63,12 +64,16 @@ namespace WcfService
     {
         public People(User user)
         {
+            this.Id = user.Id;
             this.FirstName = user.FirstName;
             this.LastName = user.LastName;
             this.Password = user.Password;
             this.UserName = user.UserName;
             this.Right = user.Right;
         }
+
+        [DataMember]
+        public int Id { get; set; }
 
         [DataMember]
         public String FirstName { get; set; }

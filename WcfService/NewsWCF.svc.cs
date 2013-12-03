@@ -22,11 +22,14 @@ namespace WcfService
 
         public People connectUser(string username, string password)
         {
+            People connectedUser = null;
             User user = bl.getUser(username, password);
-            if (user != null)
-                return new People(user);
-            else
-                return null;
+            if (user != null){
+                if (bl.isJournalist(user)) {
+                    connectedUser = new People(user);
+                }
+            }
+            return connectedUser;
         }
 
         public List<News> getNews()
@@ -43,6 +46,7 @@ namespace WcfService
         public List<News> getHistoric(People people)
         {
             User user = new User();
+            user.Id = people.Id;
             user.FirstName = people.FirstName;
             user.LastName = people.LastName;
             user.UserName = people.UserName;
@@ -62,6 +66,7 @@ namespace WcfService
         {
             New newsDb = new New();
             User user = new User();
+            user.Id = people.Id;
             user.FirstName = people.FirstName;
             user.LastName = people.LastName;
             user.UserName = people.UserName;
