@@ -243,11 +243,11 @@ namespace WindowsService.ServiceRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getHistoric", ReplyAction="http://tempuri.org/INewsWCF/getHistoricResponse")]
         System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getHistoricAsync(WindowsService.ServiceRef.People user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNewsStub", ReplyAction="http://tempuri.org/INewsWCF/getNewsStubResponse")]
-        WindowsService.ServiceRef.News[] getNewsStub();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
+        void sendNews(WindowsService.ServiceRef.News news);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/getNewsStub", ReplyAction="http://tempuri.org/INewsWCF/getNewsStubResponse")]
-        System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getNewsStubAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
+        System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -309,12 +309,12 @@ namespace WindowsService.ServiceRef {
             return base.Channel.getHistoricAsync(user);
         }
         
-        public WindowsService.ServiceRef.News[] getNewsStub() {
-            return base.Channel.getNewsStub();
+        public void sendNews(WindowsService.ServiceRef.News news) {
+            base.Channel.sendNews(news);
         }
         
-        public System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getNewsStubAsync() {
-            return base.Channel.getNewsStubAsync();
+        public System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news) {
+            return base.Channel.sendNewsAsync(news);
         }
     }
 }

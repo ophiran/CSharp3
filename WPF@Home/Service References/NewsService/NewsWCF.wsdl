@@ -31,11 +31,11 @@
   <wsdl:message name="INewsWCF_getHistoric_OutputMessage">
     <wsdl:part name="parameters" element="tns:getHistoricResponse" />
   </wsdl:message>
-  <wsdl:message name="INewsWCF_getNewsStub_InputMessage">
-    <wsdl:part name="parameters" element="tns:getNewsStub" />
+  <wsdl:message name="INewsWCF_sendNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendNews" />
   </wsdl:message>
-  <wsdl:message name="INewsWCF_getNewsStub_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getNewsStubResponse" />
+  <wsdl:message name="INewsWCF_sendNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsResponse" />
   </wsdl:message>
   <wsdl:portType name="INewsWCF">
     <wsdl:operation name="createUser">
@@ -54,9 +54,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getHistoric" message="tns:INewsWCF_getHistoric_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getHistoricResponse" message="tns:INewsWCF_getHistoric_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getNewsStub">
-      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getNewsStub" message="tns:INewsWCF_getNewsStub_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getNewsStubResponse" message="tns:INewsWCF_getNewsStub_OutputMessage" />
+    <wsdl:operation name="sendNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendNews" message="tns:INewsWCF_sendNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendNewsResponse" message="tns:INewsWCF_sendNews_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INewsWCF" type="tns:INewsWCF">
@@ -97,8 +97,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getNewsStub">
-      <soap:operation soapAction="http://tempuri.org/INewsWCF/getNewsStub" style="document" />
+    <wsdl:operation name="sendNews">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/sendNews" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
