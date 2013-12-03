@@ -79,6 +79,14 @@ namespace BLL_Library
             return user;
         }
 
+        public User getJournalist(string name)
+        {
+            User user = null;
+            var users = dbAccess.getUsers().Where<User>(u => u.UserName == name);
+            user = users.First<User>();
+            return user;
+        }
+
         public void addNews(New news)
         {
             dbAccess.addNews(news);

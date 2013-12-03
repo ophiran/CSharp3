@@ -16,6 +16,7 @@ namespace WindowsService
     public partial class NewsWindowsService : ServiceBase
     {
         NewsWCFClient proxy;
+        Thread thread;
 
         public NewsWindowsService()
         {
@@ -31,11 +32,14 @@ namespace WindowsService
 
         protected override void OnStart(string[] args)
         {
+            
+            
             try
             {
                 systemLog.WriteEntry("-Service Start-");
                 proxy = new NewsWCFClient();
-                Thread thread = new Thread(this.stud);
+                thread = new Thread(this.stud);
+                thread.Start();
             }
             catch (Exception ex)
             {
@@ -62,19 +66,27 @@ namespace WindowsService
         private void xmlFileWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
             News news;
+            String author;
             systemLog.WriteEntry("A file has been modified or added - " + e.Name);
-
-            XDocument doc = XDocument.Load(e.FullPath);
-            IEnumerable<XElement> iterator = doc.Descendants("News");
-            foreach (XElement elem in iterator)
+            try
             {
-                news = new News();
-                news.Title = elem.Element("Title").Value;
-                news.SubTitle = elem.Element("SubTitle").Value;
-                news.Body = elem.Element("Body").Value;
-                news.Author = Convert.ToInt32(elem.Element("Author").Value);
-                proxy.sendNews(news);
+                XDocument doc = XDocument.Load(e.FullPath);
+                IEnumerable<XElement> iterator = doc.Descendants("News");
+                foreach (XElement elem in iterator)
+                {
+                    news = new News();
+                    news.Title = elem.Element("Title").Value;
+                    news.SubTitle = elem.Element("SubTitle").Value;
+                    news.Body = elem.Element("Body").Value;
+                    author = elem.Element("Author").Value;
+                    proxy.sendNewsA(news,"toto");
+                }
             }
+            catch (Exception ex)
+            {
+                systemLog.WriteEntry(ex.Message);
+            }
+            
         }
     }
 }

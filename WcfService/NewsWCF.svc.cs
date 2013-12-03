@@ -78,5 +78,16 @@ namespace WcfService
             newsDb.Text = news.Body;
             bl.addNews(newsDb);
         }
+
+        public void sendNewsA(News news, string author)
+        {
+            User user = bl.getJournalist(author);
+            New newsDb = new New();
+            newsDb.User = user;
+            newsDb.Title = news.Title;
+            newsDb.SubTitle = news.SubTitle;
+            newsDb.Text = news.Body;
+            bl.addNews(newsDb);
+        }
     }
 }

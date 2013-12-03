@@ -26,6 +26,9 @@ namespace WindowsService.ServiceRef {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -56,6 +59,19 @@ namespace WindowsService.ServiceRef {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -244,10 +260,16 @@ namespace WindowsService.ServiceRef {
         System.Threading.Tasks.Task<WindowsService.ServiceRef.News[]> getHistoricAsync(WindowsService.ServiceRef.People user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
-        void sendNews(WindowsService.ServiceRef.News news);
+        void sendNews(WindowsService.ServiceRef.News news, WindowsService.ServiceRef.People people);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNews", ReplyAction="http://tempuri.org/INewsWCF/sendNewsResponse")]
-        System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news);
+        System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news, WindowsService.ServiceRef.People people);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNewsA", ReplyAction="http://tempuri.org/INewsWCF/sendNewsAResponse")]
+        void sendNewsA(WindowsService.ServiceRef.News news, string author);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INewsWCF/sendNewsA", ReplyAction="http://tempuri.org/INewsWCF/sendNewsAResponse")]
+        System.Threading.Tasks.Task sendNewsAAsync(WindowsService.ServiceRef.News news, string author);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -309,12 +331,20 @@ namespace WindowsService.ServiceRef {
             return base.Channel.getHistoricAsync(user);
         }
         
-        public void sendNews(WindowsService.ServiceRef.News news) {
-            base.Channel.sendNews(news);
+        public void sendNews(WindowsService.ServiceRef.News news, WindowsService.ServiceRef.People people) {
+            base.Channel.sendNews(news, people);
         }
         
-        public System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news) {
-            return base.Channel.sendNewsAsync(news);
+        public System.Threading.Tasks.Task sendNewsAsync(WindowsService.ServiceRef.News news, WindowsService.ServiceRef.People people) {
+            return base.Channel.sendNewsAsync(news, people);
+        }
+        
+        public void sendNewsA(WindowsService.ServiceRef.News news, string author) {
+            base.Channel.sendNewsA(news, author);
+        }
+        
+        public System.Threading.Tasks.Task sendNewsAAsync(WindowsService.ServiceRef.News news, string author) {
+            return base.Channel.sendNewsAAsync(news, author);
         }
     }
 }

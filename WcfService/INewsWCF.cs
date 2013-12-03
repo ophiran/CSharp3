@@ -27,7 +27,8 @@ namespace WcfService
         [OperationContract]
         void sendNews(News news, People people);
 
-
+        [OperationContract]
+        void sendNewsA(News news, string author);
     }
 
 
@@ -57,11 +58,16 @@ namespace WcfService
 
         [DataMember]
         public int? Author { get; set; }
+
     }
 
     [DataContract]
     public class People
     {
+        public People()
+        {
+
+        }
         public People(User user)
         {
             this.Id = user.Id;

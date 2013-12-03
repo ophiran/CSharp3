@@ -37,6 +37,12 @@
   <wsdl:message name="INewsWCF_sendNews_OutputMessage">
     <wsdl:part name="parameters" element="tns:sendNewsResponse" />
   </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNewsA_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsA" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNewsA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsAResponse" />
+  </wsdl:message>
   <wsdl:portType name="INewsWCF">
     <wsdl:operation name="createUser">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/createUser" message="tns:INewsWCF_createUser_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="sendNews">
       <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendNews" message="tns:INewsWCF_sendNews_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendNewsResponse" message="tns:INewsWCF_sendNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendNewsA">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendNewsA" message="tns:INewsWCF_sendNewsA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendNewsAResponse" message="tns:INewsWCF_sendNewsA_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INewsWCF" type="tns:INewsWCF">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="sendNews">
       <soap:operation soapAction="http://tempuri.org/INewsWCF/sendNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendNewsA">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/sendNewsA" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
