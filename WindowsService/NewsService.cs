@@ -73,8 +73,7 @@ namespace WindowsService
                 news.SubTitle = elem.Element("SubTitle").Value;
                 news.Body = elem.Element("Body").Value;
                 news.Author = Convert.ToInt32(elem.Element("Author").Value);
-                
-                systemLog.WriteEntry(elem.Element("Title").Value);
+                proxy.sendNews(news);
             }
         }
     }
