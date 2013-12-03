@@ -25,7 +25,7 @@ namespace WcfService
         List<News> getHistoric(People user);
 
         [OperationContract]
-        void sendNews(News news);
+        void sendNews(News news, People people);
 
 
     }

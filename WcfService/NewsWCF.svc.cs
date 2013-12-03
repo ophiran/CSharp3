@@ -58,11 +58,20 @@ namespace WcfService
             return newsList;
         }
 
-        public void sendNews(News news)
+        public void sendNews(News news, People people)
         {
             New newsDb = new New();
-            
-
+            User user = new User();
+            user.FirstName = people.FirstName;
+            user.LastName = people.LastName;
+            user.UserName = people.UserName;
+            user.Password = people.Password;
+            user.Right = people.Right;
+            newsDb.User = user;
+            newsDb.Title = news.Title;
+            newsDb.SubTitle = news.SubTitle;
+            newsDb.Text = news.Body;
+            bl.addNews(newsDb);
         }
     }
 }
