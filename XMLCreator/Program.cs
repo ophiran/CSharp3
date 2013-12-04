@@ -47,6 +47,10 @@ namespace XMLCreator
             }
 
             XmlSerializer serList = new XmlSerializer(typeof(List<News>));
+            if (!Directory.Exists("C:\\xmlFileWatcherCSharp"))
+            {
+                Directory.CreateDirectory("C:\\xmlFileWatcherCSharp");
+            }
             TextWriter textWriterList = new StreamWriter("C:\\xmlFileWatcherCSharp\\testList.xml");
             serList.Serialize(textWriterList, newsList);
             textWriterList.Close();

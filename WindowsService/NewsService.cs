@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -44,6 +45,11 @@ namespace WindowsService
             catch (Exception ex)
             {
                 systemLog.WriteEntry(ex.Message);
+            }
+
+            if (!Directory.Exists("C:\\xmlFileWatcherCSharp"))
+            {
+                Directory.CreateDirectory("C:\\xmlFileWatcherCSharp");
             }
             
         }
