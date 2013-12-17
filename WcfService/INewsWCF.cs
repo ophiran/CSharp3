@@ -19,6 +19,9 @@ namespace WcfService
         People connectUser(String username, String password);
 
         [OperationContract]
+        People connectReader(String username, String password);
+
+        [OperationContract]
         List<News> getNews();
 
         [OperationContract]

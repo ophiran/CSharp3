@@ -32,6 +32,17 @@ namespace WcfService
             return connectedUser;
         }
 
+        public People connectReader(string username, string password)
+        {
+            People connectedUser = null;
+            User user = bl.getUser(username, password);
+            if (user != null)
+            {
+                connectedUser = new People(user);
+            }
+            return connectedUser;
+        }
+
         public List<News> getNews()
         {
             List<News> newsList = new List<News>();

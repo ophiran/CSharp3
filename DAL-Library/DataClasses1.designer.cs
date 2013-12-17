@@ -20,7 +20,6 @@ namespace DAL_Library
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-    using System.Runtime.Serialization;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbCSharp")]
@@ -31,9 +30,18 @@ namespace DAL_Library
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertArticle(Article instance);
+    partial void UpdateArticle(Article instance);
+    partial void DeleteArticle(Article instance);
+    partial void InsertComment(Comment instance);
+    partial void UpdateComment(Comment instance);
+    partial void DeleteComment(Comment instance);
     partial void InsertImage(Image instance);
     partial void UpdateImage(Image instance);
     partial void DeleteImage(Image instance);
+    partial void InsertNew(New instance);
+    partial void UpdateNew(New instance);
+    partial void DeleteNew(New instance);
     partial void InsertNewsImage(NewsImage instance);
     partial void UpdateNewsImage(NewsImage instance);
     partial void DeleteNewsImage(NewsImage instance);
@@ -43,19 +51,13 @@ namespace DAL_Library
     partial void InsertType(Type instance);
     partial void UpdateType(Type instance);
     partial void DeleteType(Type instance);
-    partial void InsertArticle(Article instance);
-    partial void UpdateArticle(Article instance);
-    partial void DeleteArticle(Article instance);
-    partial void InsertNew(New instance);
-    partial void UpdateNew(New instance);
-    partial void DeleteNew(New instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::DAL_Library.Properties.Settings.Default.dbCSharpConnectionString, mappingSource)
+				base(global::DAL_Library.Properties.Settings.Default.dbCSharpConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -84,11 +86,35 @@ namespace DAL_Library
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Article> Articles
+		{
+			get
+			{
+				return this.GetTable<Article>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Comment> Comments
+		{
+			get
+			{
+				return this.GetTable<Comment>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Image> Images
 		{
 			get
 			{
 				return this.GetTable<Image>();
+			}
+		}
+		
+		public System.Data.Linq.Table<New> News
+		{
+			get
+			{
+				return this.GetTable<New>();
 			}
 		}
 		
@@ -116,22 +142,6 @@ namespace DAL_Library
 			}
 		}
 		
-		public System.Data.Linq.Table<Article> Articles
-		{
-			get
-			{
-				return this.GetTable<Article>();
-			}
-		}
-		
-		public System.Data.Linq.Table<New> News
-		{
-			get
-			{
-				return this.GetTable<New>();
-			}
-		}
-		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
@@ -140,570 +150,7 @@ namespace DAL_Library
 			}
 		}
 	}
-
-    [Serializable]
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
-	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Data.Linq.Binary _Image1;
-		
-		private string _Description;
-		
-		private string _Name;
-		
-		private EntitySet<NewsImage> _NewsImages;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnImage1Changing(System.Data.Linq.Binary value);
-    partial void OnImage1Changed();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public Image()
-		{
-			this._NewsImages = new EntitySet<NewsImage>(new Action<NewsImage>(this.attach_NewsImages), new Action<NewsImage>(this.detach_NewsImages));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Image", Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image1
-		{
-			get
-			{
-				return this._Image1;
-			}
-			set
-			{
-				if ((this._Image1 != value))
-				{
-					this.OnImage1Changing(value);
-					this.SendPropertyChanging();
-					this._Image1 = value;
-					this.SendPropertyChanged("Image1");
-					this.OnImage1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NChar(10)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(10)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_NewsImage", Storage="_NewsImages", ThisKey="Id", OtherKey="Image")]
-		public EntitySet<NewsImage> NewsImages
-		{
-			get
-			{
-				return this._NewsImages;
-			}
-			set
-			{
-				this._NewsImages.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_NewsImages(NewsImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Image1 = this;
-		}
-		
-		private void detach_NewsImages(NewsImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Image1 = null;
-		}
-	}
-
-    [Serializable]
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NewsImages")]
-	public partial class NewsImage : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _News;
-		
-		private int _Image;
-		
-		private EntityRef<Image> _Image1;
-		
-		private EntityRef<New> _New;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNewsChanging(int value);
-    partial void OnNewsChanged();
-    partial void OnImageChanging(int value);
-    partial void OnImageChanged();
-    #endregion
-		
-		public NewsImage()
-		{
-			this._Image1 = default(EntityRef<Image>);
-			this._New = default(EntityRef<New>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_News", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int News
-		{
-			get
-			{
-				return this._News;
-			}
-			set
-			{
-				if ((this._News != value))
-				{
-					if (this._New.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNewsChanging(value);
-					this.SendPropertyChanging();
-					this._News = value;
-					this.SendPropertyChanged("News");
-					this.OnNewsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					if (this._Image1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_NewsImage", Storage="_Image1", ThisKey="Image", OtherKey="Id", IsForeignKey=true)]
-		public Image Image1
-		{
-			get
-			{
-				return this._Image1.Entity;
-			}
-			set
-			{
-				Image previousValue = this._Image1.Entity;
-				if (((previousValue != value) 
-							|| (this._Image1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Image1.Entity = null;
-						previousValue.NewsImages.Remove(this);
-					}
-					this._Image1.Entity = value;
-					if ((value != null))
-					{
-						value.NewsImages.Add(this);
-						this._Image = value.Id;
-					}
-					else
-					{
-						this._Image = default(int);
-					}
-					this.SendPropertyChanged("Image1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="New_NewsImage", Storage="_New", ThisKey="News", OtherKey="Id", IsForeignKey=true)]
-		public New New
-		{
-			get
-			{
-				return this._New.Entity;
-			}
-			set
-			{
-				New previousValue = this._New.Entity;
-				if (((previousValue != value) 
-							|| (this._New.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._New.Entity = null;
-						previousValue.NewsImages.Remove(this);
-					}
-					this._New.Entity = value;
-					if ((value != null))
-					{
-						value.NewsImages.Add(this);
-						this._News = value.Id;
-					}
-					else
-					{
-						this._News = default(int);
-					}
-					this.SendPropertyChanged("New");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-
-    [Serializable]
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rights")]
-	public partial class Right : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private EntitySet<User> _Users;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public Right()
-		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Right_User", Storage="_Users", ThisKey="Id", OtherKey="Right")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Right1 = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Right1 = null;
-		}
-	}
-
-    [Serializable]
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Types")]
-	public partial class Type : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Type1;
-		
-		private EntitySet<Article> _Articles;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnType1Changing(string value);
-    partial void OnType1Changed();
-    #endregion
-		
-		public Type()
-		{
-			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50)")]
-		public string Type1
-		{
-			get
-			{
-				return this._Type1;
-			}
-			set
-			{
-				if ((this._Type1 != value))
-				{
-					this.OnType1Changing(value);
-					this.SendPropertyChanging();
-					this._Type1 = value;
-					this.SendPropertyChanged("Type1");
-					this.OnType1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Articles", ThisKey="Id", OtherKey="RefType")]
-		public EntitySet<Article> Articles
-		{
-			get
-			{
-				return this._Articles;
-			}
-			set
-			{
-				this._Articles.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Type = this;
-		}
-		
-		private void detach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Type = null;
-		}
-	}
-
-    [Serializable]
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Articles")]
 	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -725,6 +172,8 @@ namespace DAL_Library
 		private System.Nullable<int> _RefType;
 		
 		private System.Nullable<int> _Author;
+		
+		private EntitySet<Comment> _Comments;
 		
 		private EntityRef<Type> _Type;
 		
@@ -754,6 +203,7 @@ namespace DAL_Library
 		
 		public Article()
 		{
+			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._Type = default(EntityRef<Type>);
 			this._User = default(EntityRef<User>);
 			OnCreated();
@@ -927,6 +377,19 @@ namespace DAL_Library
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_Comment", Storage="_Comments", ThisKey="Id", OtherKey="Article")]
+		public EntitySet<Comment> Comments
+		{
+			get
+			{
+				return this._Comments;
+			}
+			set
+			{
+				this._Comments.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Type", ThisKey="RefType", OtherKey="Id", IsForeignKey=true)]
 		public Type Type
 		{
@@ -1014,9 +477,398 @@ namespace DAL_Library
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Comments(Comment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article1 = this;
+		}
+		
+		private void detach_Comments(Comment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article1 = null;
+		}
 	}
-    [Serializable]
-	[DataContract]
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Comments")]
+	public partial class Comment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Content;
+		
+		private System.Nullable<int> _Author;
+		
+		private System.Nullable<int> _Article;
+		
+		private EntityRef<Article> _Article1;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
+    partial void OnAuthorChanging(System.Nullable<int> value);
+    partial void OnAuthorChanged();
+    partial void OnArticleChanging(System.Nullable<int> value);
+    partial void OnArticleChanged();
+    #endregion
+		
+		public Comment()
+		{
+			this._Article1 = default(EntityRef<Article>);
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="VarChar(MAX)")]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="Int")]
+		public System.Nullable<int> Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Article", DbType="Int")]
+		public System.Nullable<int> Article
+		{
+			get
+			{
+				return this._Article;
+			}
+			set
+			{
+				if ((this._Article != value))
+				{
+					if (this._Article1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnArticleChanging(value);
+					this.SendPropertyChanging();
+					this._Article = value;
+					this.SendPropertyChanged("Article");
+					this.OnArticleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_Comment", Storage="_Article1", ThisKey="Article", OtherKey="Id", IsForeignKey=true)]
+		public Article Article1
+		{
+			get
+			{
+				return this._Article1.Entity;
+			}
+			set
+			{
+				Article previousValue = this._Article1.Entity;
+				if (((previousValue != value) 
+							|| (this._Article1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Article1.Entity = null;
+						previousValue.Comments.Remove(this);
+					}
+					this._Article1.Entity = value;
+					if ((value != null))
+					{
+						value.Comments.Add(this);
+						this._Article = value.Id;
+					}
+					else
+					{
+						this._Article = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Article1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_User", ThisKey="Author", OtherKey="Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Comments.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Comments.Add(this);
+						this._Author = value.Id;
+					}
+					else
+					{
+						this._Author = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Images")]
+	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Data.Linq.Binary _Image1;
+		
+		private string _Description;
+		
+		private string _Name;
+		
+		private EntitySet<NewsImage> _NewsImages;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnImage1Changing(System.Data.Linq.Binary value);
+    partial void OnImage1Changed();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Image()
+		{
+			this._NewsImages = new EntitySet<NewsImage>(new Action<NewsImage>(this.attach_NewsImages), new Action<NewsImage>(this.detach_NewsImages));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Image", Storage="_Image1", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image1
+		{
+			get
+			{
+				return this._Image1;
+			}
+			set
+			{
+				if ((this._Image1 != value))
+				{
+					this.OnImage1Changing(value);
+					this.SendPropertyChanging();
+					this._Image1 = value;
+					this.SendPropertyChanged("Image1");
+					this.OnImage1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NChar(10)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(10)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_NewsImage", Storage="_NewsImages", ThisKey="Id", OtherKey="Image")]
+		public EntitySet<NewsImage> NewsImages
+		{
+			get
+			{
+				return this._NewsImages;
+			}
+			set
+			{
+				this._NewsImages.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_NewsImages(NewsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Image1 = this;
+		}
+		
+		private void detach_NewsImages(NewsImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Image1 = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.News")]
 	public partial class New : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1068,7 +920,6 @@ namespace DAL_Library
 			OnCreated();
 		}
 		
-        [DataMember]
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Id
 		{
@@ -1088,7 +939,7 @@ namespace DAL_Library
 				}
 			}
 		}
-        [DataMember]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
 		public string Title
 		{
@@ -1108,7 +959,7 @@ namespace DAL_Library
 				}
 			}
 		}
-        [DataMember]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTitle", DbType="VarChar(50)")]
 		public string SubTitle
 		{
@@ -1128,7 +979,7 @@ namespace DAL_Library
 				}
 			}
 		}
-        [DataMember]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(MAX)")]
 		public string Text
 		{
@@ -1168,7 +1019,7 @@ namespace DAL_Library
 				}
 			}
 		}
-        [DataMember]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepositDate", DbType="Date")]
 		public System.Nullable<System.DateTime> DepositDate
 		{
@@ -1188,7 +1039,7 @@ namespace DAL_Library
 				}
 			}
 		}
-        [DataMember]
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="Int")]
 		public System.Nullable<int> Author
 		{
@@ -1292,8 +1143,403 @@ namespace DAL_Library
 			entity.New = null;
 		}
 	}
-
-    [Serializable]
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NewsImages")]
+	public partial class NewsImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _News;
+		
+		private int _Image;
+		
+		private EntityRef<Image> _Image1;
+		
+		private EntityRef<New> _New;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNewsChanging(int value);
+    partial void OnNewsChanged();
+    partial void OnImageChanging(int value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public NewsImage()
+		{
+			this._Image1 = default(EntityRef<Image>);
+			this._New = default(EntityRef<New>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_News", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int News
+		{
+			get
+			{
+				return this._News;
+			}
+			set
+			{
+				if ((this._News != value))
+				{
+					if (this._New.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNewsChanging(value);
+					this.SendPropertyChanging();
+					this._News = value;
+					this.SendPropertyChanged("News");
+					this.OnNewsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					if (this._Image1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Image_NewsImage", Storage="_Image1", ThisKey="Image", OtherKey="Id", IsForeignKey=true)]
+		public Image Image1
+		{
+			get
+			{
+				return this._Image1.Entity;
+			}
+			set
+			{
+				Image previousValue = this._Image1.Entity;
+				if (((previousValue != value) 
+							|| (this._Image1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Image1.Entity = null;
+						previousValue.NewsImages.Remove(this);
+					}
+					this._Image1.Entity = value;
+					if ((value != null))
+					{
+						value.NewsImages.Add(this);
+						this._Image = value.Id;
+					}
+					else
+					{
+						this._Image = default(int);
+					}
+					this.SendPropertyChanged("Image1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="New_NewsImage", Storage="_New", ThisKey="News", OtherKey="Id", IsForeignKey=true)]
+		public New New
+		{
+			get
+			{
+				return this._New.Entity;
+			}
+			set
+			{
+				New previousValue = this._New.Entity;
+				if (((previousValue != value) 
+							|| (this._New.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._New.Entity = null;
+						previousValue.NewsImages.Remove(this);
+					}
+					this._New.Entity = value;
+					if ((value != null))
+					{
+						value.NewsImages.Add(this);
+						this._News = value.Id;
+					}
+					else
+					{
+						this._News = default(int);
+					}
+					this.SendPropertyChanged("New");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rights")]
+	public partial class Right : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<User> _Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Right()
+		{
+			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Right_User", Storage="_Users", ThisKey="Id", OtherKey="Right")]
+		public EntitySet<User> Users
+		{
+			get
+			{
+				return this._Users;
+			}
+			set
+			{
+				this._Users.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Right1 = this;
+		}
+		
+		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Right1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Types")]
+	public partial class Type : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Type1;
+		
+		private EntitySet<Article> _Articles;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnType1Changing(string value);
+    partial void OnType1Changed();
+    #endregion
+		
+		public Type()
+		{
+			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Type1
+		{
+			get
+			{
+				return this._Type1;
+			}
+			set
+			{
+				if ((this._Type1 != value))
+				{
+					this.OnType1Changing(value);
+					this.SendPropertyChanging();
+					this._Type1 = value;
+					this.SendPropertyChanged("Type1");
+					this.OnType1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Articles", ThisKey="Id", OtherKey="RefType")]
+		public EntitySet<Article> Articles
+		{
+			get
+			{
+				return this._Articles;
+			}
+			set
+			{
+				this._Articles.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Type = this;
+		}
+		
+		private void detach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Type = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1317,6 +1563,8 @@ namespace DAL_Library
 		private int _Right;
 		
 		private EntitySet<Article> _Articles;
+		
+		private EntitySet<Comment> _Comments;
 		
 		private EntitySet<New> _News;
 		
@@ -1347,6 +1595,7 @@ namespace DAL_Library
 		public User()
 		{
 			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
+			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._News = new EntitySet<New>(new Action<New>(this.attach_News), new Action<New>(this.detach_News));
 			this._Right1 = default(EntityRef<Right>);
 			OnCreated();
@@ -1525,6 +1774,19 @@ namespace DAL_Library
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Comment", Storage="_Comments", ThisKey="Id", OtherKey="Author")]
+		public EntitySet<Comment> Comments
+		{
+			get
+			{
+				return this._Comments;
+			}
+			set
+			{
+				this._Comments.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_New", Storage="_News", ThisKey="Id", OtherKey="Author")]
 		public EntitySet<New> News
 		{
@@ -1599,6 +1861,18 @@ namespace DAL_Library
 		}
 		
 		private void detach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_Comments(Comment entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Comments(Comment entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
