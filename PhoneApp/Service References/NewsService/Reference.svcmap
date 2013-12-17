@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fdeee90a-a563-4baa-9151-572b23ae8815" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.111:12288/NewsWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsWCF.xsd" MetadataType="Schema" ID="9c281b67-be0f-4a60-8bf6-632636d74f1c" SourceId="1" SourceUrl="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsWCF1.xsd" MetadataType="Schema" ID="a5fdaf9c-8f80-4fa3-a119-9252df4a6f60" SourceId="1" SourceUrl="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsWCF.disco" MetadataType="Disco" ID="fb3ab057-2510-49b3-a74c-0fa20b6f5ea8" SourceId="1" SourceUrl="http://192.168.1.111:12288/NewsWCF.svc?disco" />
+    <MetadataFile FileName="NewsWCF2.xsd" MetadataType="Schema" ID="64445f1f-0447-4f70-8c34-54fee3e479d4" SourceId="1" SourceUrl="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewsWCF.wsdl" MetadataType="Wsdl" ID="d08f65a3-e6b8-420d-9344-c6659c25fd4d" SourceId="1" SourceUrl="http://192.168.1.111:12288/NewsWCF.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

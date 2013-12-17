@@ -54,6 +54,17 @@ namespace WcfService
             return newsList;
         }
 
+        public List<Paper> getPapers()
+        {
+            List<Paper> papersList = new List<Paper>();
+            foreach (Article a in bl.getArticles())
+            {
+                if (a != null)
+                    papersList.Add(new Paper(a));
+            }
+            return papersList;
+        }
+
         public List<News> getHistoric(People people)
         {
             User user = new User();
@@ -99,6 +110,29 @@ namespace WcfService
             newsDb.SubTitle = news.SubTitle;
             newsDb.Text = news.Body;
             bl.addNews(newsDb);
+        }
+
+        public void sendComment(Commentary commentary, People people, Paper paper)
+        {
+            Comment commentDb = new Comment();
+            User user = new User();
+            Article article = new Article();
+            user.Id = people.Id;
+            user.FirstName = people.FirstName;
+            user.LastName = people.LastName;
+            user.UserName = people.UserName;
+            user.Password = people.Password;
+            user.Right = people.Right;
+            article.Author = paper.Author;
+            article.Id = (int)paper.Id;
+            article.Overview = paper.Overview;
+            article.SubTitle = paper.SubTitle;
+            article.Text = paper.Body;
+            commentDb.User = user;
+            commentDb.Rating = commentary.Rating;
+            commentDb.Content = commentary.Content;
+            commentDb.Article1 = article;
+            bl.addComment(commentDb);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace PhoneApp
         public MainPage()
         {
             InitializeComponent();
-            proxy = new NewsWCFClient();
+            proxy = new NewsWCFClient("BasicHttpBinding_INewsWCF1");
             proxy.connectReaderCompleted += new EventHandler<NewsService.connectReaderCompletedEventArgs>(connectReaderCallback);
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -27,14 +27,22 @@ namespace PhoneApp
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            proxy.connectUserAsync(this.loginTb.Text, this.passwordTb.Text);
+            proxy.connectReaderAsync(this.loginTb.Text, this.passwordTb.Text);
         }
 
         private void connectReaderCallback(object sender, connectReaderCompletedEventArgs e)
         {
             People user = e.Result;
-            Console.Out.WriteLine(user.FirstName + user.LastName);
-            NavigationService.Navigate(new Uri("/ArticlesList.xaml", UriKind.Relative));
+            //Console.Out.WriteLine(user.FirstName + user.LastName);
+            if (user != null)
+            {
+                PhoneApplicationService.Current.State["loggedUser"] = user;
+                NavigationService.Navigate(new Uri("/articlesPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("Wrong credentials...");
+            }
         }
 
 

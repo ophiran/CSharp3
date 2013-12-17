@@ -505,6 +505,8 @@ namespace DAL_Library
 		
 		private System.Nullable<int> _Article;
 		
+		private System.Nullable<int> _Rating;
+		
 		private EntityRef<Article> _Article1;
 		
 		private EntityRef<User> _User;
@@ -521,6 +523,8 @@ namespace DAL_Library
     partial void OnAuthorChanged();
     partial void OnArticleChanging(System.Nullable<int> value);
     partial void OnArticleChanged();
+    partial void OnRatingChanging(System.Nullable<int> value);
+    partial void OnRatingChanged();
     #endregion
 		
 		public Comment()
@@ -614,6 +618,26 @@ namespace DAL_Library
 					this._Article = value;
 					this.SendPropertyChanged("Article");
 					this.OnArticleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rating", DbType="Int")]
+		public System.Nullable<int> Rating
+		{
+			get
+			{
+				return this._Rating;
+			}
+			set
+			{
+				if ((this._Rating != value))
+				{
+					this.OnRatingChanging(value);
+					this.SendPropertyChanging();
+					this._Rating = value;
+					this.SendPropertyChanged("Rating");
+					this.OnRatingChanged();
 				}
 			}
 		}

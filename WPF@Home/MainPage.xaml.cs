@@ -28,7 +28,7 @@ namespace WPF_Home
             this.journalist = journalist;
             this.journalistNameLabel.Content = journalist.FirstName + " " + journalist.LastName;
 
-            newsListBox.ItemsSource = newsListBox.ItemsSource = MainWindow.proxy.getNews().ToList<News>(); ;
+            newsListBox.ItemsSource = MainWindow.proxy.getNews().ToList<News>();
 
             
         }

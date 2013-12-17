@@ -134,6 +134,55 @@ namespace DAL_Library
         }
         #endregion
 
+        #region Comments
+        public List<Comment> getComments()
+        {
+
+            IEnumerable<Comment> commentsList = from comments in dc.Comments
+                                                select comments;
+
+            return commentsList.ToList<Comment>();
+        }
+
+        public int getMaxIdComments()
+        {
+            if (dc.Comments.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.Comments.Max(n => n.Id);
+            }
+        }
+
+        public void addComments(Comment comments)
+        {
+
+            if (!dc.Comments.Contains(comments))
+            {
+                comments.Id = getMaxIdComments() + 1;
+                dc.Comments.InsertOnSubmit(comments);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void delComments(Comment comments)
+        {
+
+            if (dc.Comments.Contains(comments))
+            {
+                dc.Comments.DeleteOnSubmit(comments);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void updComments(Comment comments)
+        {
+            dc.SubmitChanges();
+        }
+        #endregion
+
         #region Rights
         public List<Right> getRights()
         {

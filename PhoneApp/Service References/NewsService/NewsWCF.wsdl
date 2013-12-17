@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewsWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.111:12288/NewsWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsWCF_createUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:createUser" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_createUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_connectUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:connectUser" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_connectUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:connectUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_connectReader_InputMessage">
+    <wsdl:part name="parameters" element="tns:connectReader" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_connectReader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:connectReaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getPapers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPapers" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getPapers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPapersResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendComment" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getHistoric_InputMessage">
+    <wsdl:part name="parameters" element="tns:getHistoric" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_getHistoric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getHistoricResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNews_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendNews" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNewsA_InputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsA" />
+  </wsdl:message>
+  <wsdl:message name="INewsWCF_sendNewsA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sendNewsAResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INewsWCF">
+    <wsdl:operation name="createUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/createUser" message="tns:INewsWCF_createUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/createUserResponse" message="tns:INewsWCF_createUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="connectUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/connectUser" message="tns:INewsWCF_connectUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/connectUserResponse" message="tns:INewsWCF_connectUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="connectReader">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/connectReader" message="tns:INewsWCF_connectReader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/connectReaderResponse" message="tns:INewsWCF_connectReader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getNews" message="tns:INewsWCF_getNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getNewsResponse" message="tns:INewsWCF_getNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPapers">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getPapers" message="tns:INewsWCF_getPapers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getPapersResponse" message="tns:INewsWCF_getPapers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendComment" message="tns:INewsWCF_sendComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendCommentResponse" message="tns:INewsWCF_sendComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getHistoric">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/getHistoric" message="tns:INewsWCF_getHistoric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/getHistoricResponse" message="tns:INewsWCF_getHistoric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendNews">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendNews" message="tns:INewsWCF_sendNews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendNewsResponse" message="tns:INewsWCF_sendNews_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sendNewsA">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsWCF/sendNewsA" message="tns:INewsWCF_sendNewsA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsWCF/sendNewsAResponse" message="tns:INewsWCF_sendNewsA_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INewsWCF" type="tns:INewsWCF">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/createUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectUser">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/connectUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectReader">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/connectReader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNews">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/getNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPapers">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/getPapers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendComment">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/sendComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHistoric">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/getHistoric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendNews">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/sendNews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendNewsA">
+      <soap:operation soapAction="http://tempuri.org/INewsWCF/sendNewsA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsWCF">
+    <wsdl:port name="BasicHttpBinding_INewsWCF" binding="tns:BasicHttpBinding_INewsWCF">
+      <soap:address location="http://192.168.1.111:12288/NewsWCF.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

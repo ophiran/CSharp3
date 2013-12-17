@@ -25,6 +25,12 @@ namespace WcfService
         List<News> getNews();
 
         [OperationContract]
+        List<Paper> getPapers();
+
+        [OperationContract]
+        void sendComment(Commentary commentary, People people, Paper paper);
+
+        [OperationContract]
         List<News> getHistoric(People user);
 
         [OperationContract]
@@ -58,6 +64,72 @@ namespace WcfService
         
         [DataMember]
         public String Body { get; set; }
+
+        [DataMember]
+        public int? Author { get; set; }
+
+    }
+
+    [DataContract]
+    public class Commentary
+    {
+        public Commentary()
+        {
+
+        }
+        public Commentary(Comment c)
+        {
+            this.Content = c.Content;
+            this.Rating = c.Rating;
+            this.Paper = c.Article;
+            this.Author = c.Author;
+        }
+        [DataMember]
+        public String Content { get; set; }
+
+        [DataMember]
+        public int? Rating { get; set; }
+
+        [DataMember]
+        public int? Paper { get; set; }
+
+        [DataMember]
+        public int? Author { get; set; }
+
+    }
+
+    [DataContract]
+    public class Paper
+    {
+        public Paper()
+        {
+
+        }
+        public Paper(Article a)
+        {
+            this.Id = a.Id;
+            this.Author = a.Author;
+            this.Title = a.Title;
+            this.SubTitle = a.SubTitle;
+            this.Body = a.Text;
+            this.Overview = a.Overview;
+            this.Author = a.Author;
+        }
+        [DataMember]
+        public int? Id { get; set; }
+
+        [DataMember]
+        public String Title { get; set; }
+
+        [DataMember]
+        public String SubTitle { get; set; }
+        
+        [DataMember]
+        public String Body { get; set; }
+
+        [DataMember]
+        public String Overview { get; set; }
+
 
         [DataMember]
         public int? Author { get; set; }

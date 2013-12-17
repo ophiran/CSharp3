@@ -30,6 +30,12 @@ namespace BLL_Library
             return listNews;
         }
 
+        public List<Article> getArticles()
+        {
+            return dbAccess.getArticles();
+
+        }
+
         public User getUser(string name, string password)
         {
             User user = null;
@@ -39,6 +45,11 @@ namespace BLL_Library
                 user = users.First<User>();
             }
             return user;
+        }
+
+        public void addComment(Comment comment)
+        {
+            dbAccess.addComments(comment);
         }
 
         public void addJournalist(string firstName, string lastName, string userName, string password)

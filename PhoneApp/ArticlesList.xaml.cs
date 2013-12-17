@@ -10,11 +10,19 @@ using Microsoft.Phone.Shell;
 
 namespace PhoneApp
 {
-    public partial class Page1 : PhoneApplicationPage
+    public partial class ArticlesList : PhoneApplicationPage
     {
-        public Page1()
+        public ArticlesList()
         {
             InitializeComponent();
+            //papersListBox
+            //papersList.ItemsSource = MainWindow.proxy.getNews().ToList<News>();
         }
+
+        private void papersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
     }
 }

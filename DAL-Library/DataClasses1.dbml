@@ -21,6 +21,7 @@
       <Column Name="Content" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Author" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Article" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Article_Comment" Member="Article1" ThisKey="Article" OtherKey="Id" Type="Article" IsForeignKey="true" />
       <Association Name="User_Comment" Member="User" ThisKey="Author" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
