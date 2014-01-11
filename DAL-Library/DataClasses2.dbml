@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbCSharp" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\Projects;Initial Catalog=dbCSharp;Integrated Security=True;Connect Timeout=30" SettingsObjectName="DAL_Library.Properties.Settings" SettingsPropertyName="dbCSharpConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Articles" Member="Articles">
+    <Type Name="Article">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Overview" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RefType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Author" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Article_Comment" Member="Comments" ThisKey="Id" OtherKey="Article" Type="Comment" />
+      <Association Name="Type_Article" Member="Type" ThisKey="RefType" OtherKey="Id" Type="Type" IsForeignKey="true" />
+      <Association Name="User_Article" Member="User" ThisKey="Author" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comments" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Author" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Article" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Article_Comment" Member="Article1" ThisKey="Article" OtherKey="Id" Type="Article" IsForeignKey="true" />
+      <Association Name="User_Comment" Member="User" ThisKey="Author" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Member="Image1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Image_NewsImage" Member="NewsImages" ThisKey="Id" OtherKey="Image" Type="NewsImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="New">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RefImage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Author" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="New_NewsImage" Member="NewsImages" ThisKey="Id" OtherKey="News" Type="NewsImage" />
+      <Association Name="User_New" Member="User" ThisKey="Author" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NewsImages" Member="NewsImages">
+    <Type Name="NewsImage">
+      <Column Name="News" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Image_NewsImage" Member="Image1" ThisKey="Image" OtherKey="Id" Type="Image" IsForeignKey="true" />
+      <Association Name="New_NewsImage" Member="New" ThisKey="News" OtherKey="Id" Type="New" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rights" Member="Rights">
+    <Type Name="Right">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Right_User" Member="Users" ThisKey="Id" OtherKey="Right" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Types" Member="Types">
+    <Type Name="Type">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Member="Type1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Type_Article" Member="Articles" ThisKey="Id" OtherKey="RefType" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MailAddress" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[Right]" Member="Right" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Article" Member="Articles" ThisKey="Id" OtherKey="Author" Type="Article" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="Id" OtherKey="Author" Type="Comment" />
+      <Association Name="User_New" Member="News" ThisKey="Id" OtherKey="Author" Type="New" />
+      <Association Name="Right_User" Member="Right1" ThisKey="Right" OtherKey="Id" Type="Right" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

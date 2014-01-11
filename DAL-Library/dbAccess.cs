@@ -9,7 +9,7 @@ namespace DAL_Library
 {
     public class DbAccess
     {
-        public DataClasses1DataContext dc = new DataClasses1DataContext();
+        public DataClasses2DataContext dc = new DataClasses2DataContext();
 
         #region News
         public List<New> getNews()
