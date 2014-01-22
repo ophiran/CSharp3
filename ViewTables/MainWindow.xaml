@@ -30,6 +30,12 @@
 
                 </DataGrid>
             </TabItem>
+            
+            <TabItem Header="Status">
+                <DataGrid ItemsSource="{Binding statusList}" Grid.ColumnSpan="2">
+                    
+                </DataGrid>
+            </TabItem>
         </TabControl>
     </StackPanel>
 </Window>

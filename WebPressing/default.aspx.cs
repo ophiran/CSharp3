@@ -19,25 +19,28 @@ namespace WebPressing
         {
             this.TreeView1.Load += TreeView1_Load;
             dbAccess = new blAccess();
-
-            Menu1.Items.Clear();
-            MenuItem temp = new MenuItem("Menu");
-            temp.Selectable = false;
-
-            MenuItem addedItem = new MenuItem("Connect");
+            
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            strUrl += "Connection.aspx";
-            addedItem.NavigateUrl = strUrl;
+            DAL_Library.User connectedUser = Session["ConnectedUser"] as DAL_Library.User;
 
-            temp.ChildItems.Add(addedItem);
 
-            addedItem = new MenuItem("Create Account");
-            strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            strUrl += "CreateAcc.aspx";
-            addedItem.NavigateUrl = strUrl;
-
-            temp.ChildItems.Add(addedItem);
-            Menu1.Items.Add(temp);
+            if (Session["ConnectedUser"] == null)
+            {
+                MenuLoader.loadMenu(Menu1, strUrl, UserType.NONE);
+            }
+            else if(connectedUser.Right == dbAccess.getRight("Admin").Id)
+            {
+                MenuLoader.loadMenu(Menu1, strUrl, UserType.ADMIN);
+            }
+            else if(connectedUser.Status == dbAccess.getStatus("Active").Id)
+            {
+                MenuLoader.loadMenu(Menu1, strUrl, UserType.READER);
+            }
+            else 
+            {
+                MenuLoader.loadMenu(Menu1, strUrl, UserType.NONE);
+            }
+            
         }
 
         private void TreeView1_Load(object sender, EventArgs e)

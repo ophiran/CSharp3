@@ -1,6 +1,7 @@
 ﻿using DAL_Library;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,30 @@ namespace BLL_Library
 
         }
 
+        public List<Article> getArticles(string theme)
+        {
+            List<DAL_Library.Type> themes = dbAccess.getTypes();
+            DAL_Library.Type sTheme = null;
+            foreach(DAL_Library.Type item in themes)
+            {
+                if (item.Type1 == theme)
+                    sTheme = item;
+            }
+
+            List<Article> respArticles = new List<Article>();
+
+            if(sTheme != null)
+            {
+                foreach (Article item in dbAccess.getArticles())
+                {
+                    if (item.Type.Id == sTheme.Id)
+                        respArticles.Add(item);
+                }
+            }
+
+            return respArticles;
+        }
+
         public User getUser(string name, string password)
         {
             User user = null;
@@ -54,12 +79,18 @@ namespace BLL_Library
 
         public void addJournalist(string firstName, string lastName, string userName, string password)
         {
+
             User user = new User();
             user.FirstName = firstName;
             user.LastName = lastName;
             user.UserName = userName;
             user.Password = password;
 
+            addJournalist(user);
+        }
+
+        public void addJournalist(User user)
+        {
             dbAccess.addUsers(user);
         }
 
@@ -101,6 +132,31 @@ namespace BLL_Library
         public void addNews(New news)
         {
             dbAccess.addNews(news);
+        }
+
+        public List<DAL_Library.Type> getThemes()
+        {
+            return dbAccess.getTypes();
+        }
+
+        public Article getArticle(int Id)
+        {
+            foreach(Article item in dbAccess.getArticles())
+            {
+                if (item.Id == Id)
+                    return item;
+            }
+            return null;
+        }
+
+        public Right getRight(String name)
+        {
+            return dbAccess.getRights().Where<Right>(u => u.Name == name).First<Right>();
+        }
+
+        public Status getStatus(String name)
+        {
+            return dbAccess.getStatus().Where<Status>(u => u.Status1 == name).First<Status>();
         }
 
     }

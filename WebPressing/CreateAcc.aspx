@@ -26,14 +26,26 @@
         </asp:Panel>
     
         <br />
-        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Height="340px" Width="556px">
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Height="340px" Width="488px">
             <WizardSteps>
                 <asp:WizardStep runat="server" title="Account Type">
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" Height="56px" Width="133px">
+                        <asp:ListItem>Journalist</asp:ListItem>
+                        <asp:ListItem>Reader</asp:ListItem>
+                    </asp:RadioButtonList>
                 </asp:WizardStep>
                 <asp:WizardStep runat="server" title="User Informations">
-                    Username:<br /> Mail Address:<br />
+                    Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <asp:TextBox ID="TextBoxUsername" runat="server"></asp:TextBox>
+                    <br /> Mail Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxMail" runat="server"></asp:TextBox>
                     <br />
-                    Password:<br /> Confirm Password:<br />
+                    <br />
+                    Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxPassword" runat="server"></asp:TextBox>
+                    <br /> Confirm Password:&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxPasswordConfirm" runat="server"></asp:TextBox>
+                    <br />
                     <br />
                     <br />
                 </asp:WizardStep>
@@ -42,7 +54,7 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Label ID="Label1" runat="server" Text="-Programmable-"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Validation file :"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </asp:WizardStep>

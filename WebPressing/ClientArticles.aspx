@@ -6,9 +6,9 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 795px">
     <form id="form1" runat="server">
-    <div style="height: 275px">
+    <div style="height: 799px">
     
         
         <asp:Panel ID="Panel1" runat="server" BackColor="#666699">
@@ -26,8 +26,30 @@
 
         </asp:Panel>
         <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+        <asp:Label ID="Theme" runat="server" Text=""></asp:Label>
 
         <br />
+
+        <br />
+        &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Description" runat="server" Text=""></asp:Label>
+        <br />
+        <br />
+        <asp:ListBox ID="ListBox1" runat="server" Height="358px" Width="227px"></asp:ListBox>
+
+        <br />
+        <br />
+        <asp:Label ID="ArticleTitle" runat="server" Text=""></asp:Label>
+        <br />
+        <br />
+        <asp:Image ID="ArticleImage" runat="server" Height="117px" Width="150px" />
+        <br />
+        <br />
+        <asp:Label ID="ArticleSubtitle" runat="server" Text=""></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="TextZone" runat="server" Text=""></asp:Label>
 
     </div>
     </form>

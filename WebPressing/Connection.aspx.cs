@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL_Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,40 +10,35 @@ namespace WebPressing
 {
     public partial class Connection : System.Web.UI.Page
     {
+        blAccess dbAccess;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Menu1.Items.Clear();
-            MenuItem temp = new MenuItem("Menu");
-            temp.Selectable = false;
-
-            MenuItem addedItem = new MenuItem("Connect");
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            strUrl += "Connection.aspx";
-            addedItem.NavigateUrl = strUrl;
+            MenuLoader.loadMenu(Menu1, strUrl, UserType.NONE);
 
-            temp.ChildItems.Add(addedItem);
-
-            addedItem = new MenuItem("Create Account");
-            strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            strUrl += "CreateAcc.aspx";
-            addedItem.NavigateUrl = strUrl;
-
-            temp.ChildItems.Add(addedItem);
-
-            addedItem = new MenuItem("Home");
-            strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            strUrl += "default.aspx";
-            addedItem.NavigateUrl = strUrl;
-
-            temp.ChildItems.Add(addedItem);
-            Menu1.Items.Add(temp);
-
-            TextBox2.TextMode = TextBoxMode.Password;
+            TextBoxPassword.TextMode = TextBoxMode.Password;
+            dbAccess = new blAccess();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
 
+            String password = TextBoxPassword.Text;
+            String username = TextBoxUsername.Text;
+            Session["ConnectedUser"] = dbAccess.getUser(username, password);
+
+            String redirectUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
+            redirectUrl += "default.aspx";
+
+            if (Session["ConnectedUser"] != null)
+            {
+                /*
+                if (Request.Cookies.Get("Username") == null)
+                {
+                    Response.AppendCookie(new HttpCookie("Username", ((DAL_Library.User)Session["ConnectedUser"]).UserName));
+                }*/
+                Response.Redirect(redirectUrl);
+            }
         }
     }
 }

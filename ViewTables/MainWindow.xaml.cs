@@ -30,6 +30,8 @@ namespace ViewTables
         public BindingListWRemove<DAL_Library.Type> typesList { get; set; }
         public BindingListWRemove<User> usersList { get; set; }
 
+        public BindingListWRemove<Status> statusList { get; set; }
+
         DbAccess db;
         public MainWindow()
         {
@@ -43,6 +45,7 @@ namespace ViewTables
             rightsList = new BindingListWRemove<Right>(db.getRights());
             typesList = new BindingListWRemove<DAL_Library.Type>(db.getTypes());
             usersList = new BindingListWRemove<User>(db.getUsers());
+            statusList = new BindingListWRemove<Status>(db.getStatus());
 
             newsList.ListChanged += onNewsListChanged;
             newsList.BeforeRemove += onNewsDelete;
@@ -54,8 +57,33 @@ namespace ViewTables
             typesList.BeforeRemove += onTypesDelete;
             usersList.ListChanged += onUsersListChanged;
             usersList.BeforeRemove += onUsersDelete;
+            statusList.ListChanged += statusList_ListChanged;
+            statusList.BeforeRemove += statusList_BeforeRemove;
 
             
+        }
+
+        void statusList_BeforeRemove(object sender, ListChangedEventArgs e)
+        {
+            Status n = statusList.ElementAt<Status>(e.NewIndex);
+            db.delStatus(n);
+        }
+
+        void statusList_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (!e.ListChangedType.Equals(ListChangedType.ItemDeleted))
+            {
+                Status n = statusList.ElementAt<Status>(e.NewIndex);
+
+                if (e.ListChangedType.Equals(ListChangedType.ItemAdded))
+                {
+                    db.addStatus(n);
+                }
+                else if (e.ListChangedType.Equals(ListChangedType.ItemChanged))
+                {
+                    db.updStatus(n);
+                }
+            }
         }
 
         public void onNewsDelete(object sender, ListChangedEventArgs e)

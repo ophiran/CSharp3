@@ -329,5 +329,50 @@ namespace DAL_Library
             dc.SubmitChanges();
         }
         #endregion
+
+        #region Status
+        public List<Status> getStatus()
+        {
+            IEnumerable<Status> statusList = from status in dc.Status select status;
+            return statusList.ToList<Status>();
+        }
+
+        public int getMaxIdStatus()
+        {
+            if (dc.Status.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.Status.Max(n => n.Id);
+            }
+        }
+
+        public void addStatus(Status status)
+        {
+            if (!dc.Status.Contains(status))
+            {
+                status.Id = getMaxIdTypes() + 1;
+                dc.Status.InsertOnSubmit(status);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void delStatus(Status status)
+        {
+
+            if (dc.Status.Contains(status))
+            {
+                dc.Status.DeleteOnSubmit(status);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void updStatus(Status status)
+        {
+            dc.SubmitChanges();
+        }
+        #endregion
     }
 }
