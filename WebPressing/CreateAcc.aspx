@@ -26,7 +26,7 @@
         </asp:Panel>
     
         <br />
-        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="2" Height="340px" Width="488px">
+        <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Height="340px" Width="488px">
             <WizardSteps>
                 <asp:WizardStep runat="server" title="Account Type">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" Height="56px" Width="133px">

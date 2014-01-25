@@ -53,7 +53,8 @@ namespace WebPressing
             if (e.CurrentStepIndex == 0) 
             {
                 if(Session["CUser.Type"] == null)
-                    Session["CUser.Type"] = RadioButtonList1.SelectedItem.Text;
+                    Session["CUser.Type"] = RadioButtonList1.SelectedValue;
+                
             }
             else if (e.CurrentStepIndex == 1)
             {

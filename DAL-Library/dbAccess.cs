@@ -308,7 +308,7 @@ namespace DAL_Library
             
             if (!dc.Users.Contains(users))
             {
-                users.Id = getMaxIdTypes() + 1;
+                users.Id = getMaxIdUsers() + 1;
                 dc.Users.InsertOnSubmit(users);
                 dc.SubmitChanges();
             }
@@ -353,7 +353,7 @@ namespace DAL_Library
         {
             if (!dc.Status.Contains(status))
             {
-                status.Id = getMaxIdTypes() + 1;
+                status.Id = getMaxIdStatus() + 1;
                 dc.Status.InsertOnSubmit(status);
                 dc.SubmitChanges();
             }

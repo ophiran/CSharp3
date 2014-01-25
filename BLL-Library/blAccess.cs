@@ -159,5 +159,16 @@ namespace BLL_Library
             return dbAccess.getStatus().Where<Status>(u => u.Status1 == name).First<Status>();
         }
 
+        public List<User> getReaders()
+        {
+            return dbAccess.getUsers().Where<User>(u => u.Right1.Name == "Reader").ToList();
+        }
+
+        public void setStatus(int userId,Status status)
+        {
+            User user = dbAccess.getUsers().Where<User>(u => u.Id == userId).First<User>();
+            user.Status = status.Id;
+            dbAccess.updUsers(user);
+        }
     }
 }
