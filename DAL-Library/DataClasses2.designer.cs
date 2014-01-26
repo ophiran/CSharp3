@@ -42,9 +42,6 @@ namespace DAL_Library
     partial void InsertRight(Right instance);
     partial void UpdateRight(Right instance);
     partial void DeleteRight(Right instance);
-    partial void InsertType(Type instance);
-    partial void UpdateType(Type instance);
-    partial void DeleteType(Type instance);
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
@@ -57,6 +54,9 @@ namespace DAL_Library
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertType(Type instance);
+    partial void UpdateType(Type instance);
+    partial void DeleteType(Type instance);
     #endregion
 		
 		public DataClasses2DataContext() : 
@@ -121,14 +121,6 @@ namespace DAL_Library
 			}
 		}
 		
-		public System.Data.Linq.Table<Type> Types
-		{
-			get
-			{
-				return this.GetTable<Type>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Article> Articles
 		{
 			get
@@ -158,6 +150,14 @@ namespace DAL_Library
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Type> Types
+		{
+			get
+			{
+				return this.GetTable<Type>();
 			}
 		}
 	}
@@ -846,120 +846,6 @@ namespace DAL_Library
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Types")]
-	public partial class Type : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Type1;
-		
-		private EntitySet<Article> _Articles;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnType1Changing(string value);
-    partial void OnType1Changed();
-    #endregion
-		
-		public Type()
-		{
-			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Type1
-		{
-			get
-			{
-				return this._Type1;
-			}
-			set
-			{
-				if ((this._Type1 != value))
-				{
-					this.OnType1Changing(value);
-					this.SendPropertyChanging();
-					this._Type1 = value;
-					this.SendPropertyChanged("Type1");
-					this.OnType1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Articles", ThisKey="Id", OtherKey="RefType")]
-		public EntitySet<Article> Articles
-		{
-			get
-			{
-				return this._Articles;
-			}
-			set
-			{
-				this._Articles.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Type = this;
-		}
-		
-		private void detach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Type = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Articles")]
 	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -988,11 +874,11 @@ namespace DAL_Library
 		
 		private EntitySet<Comment> _Comments;
 		
-		private EntityRef<Type> _Type;
-		
 		private EntityRef<Status> _Status1;
 		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Type> _Type;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1023,9 +909,9 @@ namespace DAL_Library
 		public Article()
 		{
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
-			this._Type = default(EntityRef<Type>);
 			this._Status1 = default(EntityRef<Status>);
 			this._User = default(EntityRef<User>);
+			this._Type = default(EntityRef<Type>);
 			OnCreated();
 		}
 		
@@ -1254,40 +1140,6 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Type", ThisKey="RefType", OtherKey="Id", IsForeignKey=true)]
-		public Type Type
-		{
-			get
-			{
-				return this._Type.Entity;
-			}
-			set
-			{
-				Type previousValue = this._Type.Entity;
-				if (((previousValue != value) 
-							|| (this._Type.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Type.Entity = null;
-						previousValue.Articles.Remove(this);
-					}
-					this._Type.Entity = value;
-					if ((value != null))
-					{
-						value.Articles.Add(this);
-						this._RefType = value.Id;
-					}
-					else
-					{
-						this._RefType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Type");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Article", Storage="_Status1", ThisKey="Status", OtherKey="Id", IsForeignKey=true)]
 		public Status Status1
 		{
@@ -1352,6 +1204,40 @@ namespace DAL_Library
 						this._Author = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Type", ThisKey="RefType", OtherKey="Id", IsForeignKey=true)]
+		public Type Type
+		{
+			get
+			{
+				return this._Type.Entity;
+			}
+			set
+			{
+				Type previousValue = this._Type.Entity;
+				if (((previousValue != value) 
+							|| (this._Type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Type.Entity = null;
+						previousValue.Articles.Remove(this);
+					}
+					this._Type.Entity = value;
+					if ((value != null))
+					{
+						value.Articles.Add(this);
+						this._RefType = value.Id;
+					}
+					else
+					{
+						this._RefType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Type");
 				}
 			}
 		}
@@ -1769,6 +1655,8 @@ namespace DAL_Library
 		
 		private EntitySet<User> _Users;
 		
+		private EntitySet<Type> _Types;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1784,6 +1672,7 @@ namespace DAL_Library
 			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
 			this._News = new EntitySet<New>(new Action<New>(this.attach_News), new Action<New>(this.detach_News));
 			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
+			this._Types = new EntitySet<Type>(new Action<Type>(this.attach_Types), new Action<Type>(this.detach_Types));
 			OnCreated();
 		}
 		
@@ -1866,6 +1755,19 @@ namespace DAL_Library
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Type", Storage="_Types", ThisKey="Id", OtherKey="Status")]
+		public EntitySet<Type> Types
+		{
+			get
+			{
+				return this._Types;
+			}
+			set
+			{
+				this._Types.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1917,6 +1819,18 @@ namespace DAL_Library
 		}
 		
 		private void detach_Users(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Status1 = null;
+		}
+		
+		private void attach_Types(Type entity)
+		{
+			this.SendPropertyChanging();
+			entity.Status1 = this;
+		}
+		
+		private void detach_Types(Type entity)
 		{
 			this.SendPropertyChanging();
 			entity.Status1 = null;
@@ -2179,7 +2093,7 @@ namespace DAL_Library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[File]", Storage="_File", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[File]", Storage="_File", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary File
 		{
 			get
@@ -2360,6 +2274,185 @@ namespace DAL_Library
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Types")]
+	public partial class Type : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Type1;
+		
+		private System.Nullable<int> _Status;
+		
+		private EntitySet<Article> _Articles;
+		
+		private EntityRef<Status> _Status1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnType1Changing(string value);
+    partial void OnType1Changed();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Type()
+		{
+			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
+			this._Status1 = default(EntityRef<Status>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Type", Storage="_Type1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Type1
+		{
+			get
+			{
+				return this._Type1;
+			}
+			set
+			{
+				if ((this._Type1 != value))
+				{
+					this.OnType1Changing(value);
+					this.SendPropertyChanging();
+					this._Type1 = value;
+					this.SendPropertyChanged("Type1");
+					this.OnType1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					if (this._Status1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Article", Storage="_Articles", ThisKey="Id", OtherKey="RefType")]
+		public EntitySet<Article> Articles
+		{
+			get
+			{
+				return this._Articles;
+			}
+			set
+			{
+				this._Articles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Type", Storage="_Status1", ThisKey="Status", OtherKey="Id", IsForeignKey=true)]
+		public Status Status1
+		{
+			get
+			{
+				return this._Status1.Entity;
+			}
+			set
+			{
+				Status previousValue = this._Status1.Entity;
+				if (((previousValue != value) 
+							|| (this._Status1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Status1.Entity = null;
+						previousValue.Types.Remove(this);
+					}
+					this._Status1.Entity = value;
+					if ((value != null))
+					{
+						value.Types.Add(this);
+						this._Status = value.Id;
+					}
+					else
+					{
+						this._Status = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Status1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Type = this;
+		}
+		
+		private void detach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.Type = null;
 		}
 	}
 }

@@ -170,5 +170,31 @@ namespace BLL_Library
             user.Status = status.Id;
             dbAccess.updUsers(user);
         }
+
+        public void setArticleStatus(int articleId,Status status)
+        {
+            Article article = dbAccess.getArticles().Where<Article>(a => a.Id == articleId).First<Article>();
+            article.Status = status.Id;
+            dbAccess.updArticles(article);
+        }
+        public void setNewsStatus(int newsId, Status status)
+        {
+            New news = dbAccess.getNews().Where<New>(n => n.Id == newsId).First<New>();
+            news.Status = status.Id;
+            dbAccess.updNews(news);
+        }
+        public void setThemeStatus(int themeId, Status status)
+        {
+
+            DAL_Library.Type theme = dbAccess.getTypes().Where<DAL_Library.Type>(t => t.Id == themeId).First<DAL_Library.Type>();
+            theme.Status = status.Id;
+            dbAccess.updTypes(theme);
+        }
+
+        public List<Article> getStatArticlesJournalist()
+        {
+            IEnumerable<Article> articles = dbAccess.getArticles().GroupBy(a => a.Author).SelectMany(group => group);
+            return articles.ToList();
+        }
     }
 }

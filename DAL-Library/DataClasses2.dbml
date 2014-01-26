@@ -35,13 +35,6 @@
       <Association Name="Right_User" Member="Users" ThisKey="Id" OtherKey="Right" Type="User" />
     </Type>
   </Table>
-  <Table Name="dbo.Types" Member="Types">
-    <Type Name="Type">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Type" Member="Type1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Type_Article" Member="Articles" ThisKey="Id" OtherKey="RefType" Type="Article" />
-    </Type>
-  </Table>
   <Table Name="dbo.Articles" Member="Articles">
     <Type Name="Article">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -55,9 +48,9 @@
       <Column Name="Statistic" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Article_Comment" Member="Comments" ThisKey="Id" OtherKey="Article" Type="Comment" />
-      <Association Name="Type_Article" Member="Type" ThisKey="RefType" OtherKey="Id" Type="Type" IsForeignKey="true" />
       <Association Name="Status_Article" Member="Status1" ThisKey="Status" OtherKey="Id" Type="Status" IsForeignKey="true" />
       <Association Name="User_Article" Member="User" ThisKey="Author" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Type_Article" Member="Type" ThisKey="RefType" OtherKey="Id" Type="Type" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.News" Member="News">
@@ -83,6 +76,7 @@
       <Association Name="Status_Article" Member="Articles" ThisKey="Id" OtherKey="Status" Type="Article" />
       <Association Name="Status_New" Member="News" ThisKey="Id" OtherKey="Status" Type="New" />
       <Association Name="Status_User" Member="Users" ThisKey="Id" OtherKey="Status" Type="User" />
+      <Association Name="Status_Type" Member="Types" ThisKey="Id" OtherKey="Status" Type="Type" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">
@@ -102,6 +96,15 @@
       <Association Name="User_New" Member="News" ThisKey="Id" OtherKey="Author" Type="New" />
       <Association Name="Right_User" Member="Right1" ThisKey="Right" OtherKey="Id" Type="Right" IsForeignKey="true" />
       <Association Name="Status_User" Member="Status1" ThisKey="Status" OtherKey="Id" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Types" Member="Types">
+    <Type Name="Type">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Type" Member="Type1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Type_Article" Member="Articles" ThisKey="Id" OtherKey="RefType" Type="Article" />
+      <Association Name="Status_Type" Member="Status1" ThisKey="Status" OtherKey="Id" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
