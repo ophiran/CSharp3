@@ -15,6 +15,8 @@ namespace WebPressing
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
+            MenuLoader.loadMenu(Menu1, strUrl, UserType.ADMIN);
             dbAccess = new BLL_Library.blAccess();
 
             LinqDataSource1.EnableUpdate = true;
