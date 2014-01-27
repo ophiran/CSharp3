@@ -5,10 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #TextArea1 {
+            height: 106px;
+            width: 183px;
+        }
+    </style>
 </head>
 <body style="height: 795px">
     <form id="form1" runat="server">
-    <div style="height: 799px">
+    <div style="height: 852px">
     
         
         <asp:Panel ID="Panel1" runat="server" BackColor="#666699">
@@ -36,7 +42,7 @@
         <asp:Label ID="Description" runat="server" Text=""></asp:Label>
         <br />
         <br />
-        <asp:ListBox ID="ListBox1" runat="server" Height="358px" Width="227px"></asp:ListBox>
+        <asp:ListBox ID="ListBox1" runat="server" Height="358px" Width="227px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
 
         <br />
         <br />
@@ -49,7 +55,7 @@
         <asp:Label ID="ArticleSubtitle" runat="server" Text=""></asp:Label>
         <br />
         <br />
-        <asp:Label ID="TextZone" runat="server" Text=""></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server" Height="123px" Width="175px"></asp:TextBox>
 
     </div>
     </form>
