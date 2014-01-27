@@ -37,6 +37,7 @@ namespace WebPressing
                 {
                     Response.AppendCookie(new HttpCookie("Username", ((DAL_Library.User)Session["ConnectedUser"]).UserName));
                 }*/
+                dbAccess.incConnectionCount(DateTime.Today.Date);
                 Response.Redirect(redirectUrl);
             }
         }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 10" name="DataClasses2">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 12.5" name="DataClasses2">
   <DataContextMoniker Name="/DataClasses2DataContext" />
   <nestedChildShapes>
     <classShape Id="643d748a-b2b9-4bdb-a706-43e2fb8a21f6" absoluteBounds="10, 1.5, 2, 1.7708968098958333">
@@ -92,14 +92,14 @@
         <classShapeMoniker Id="643d748a-b2b9-4bdb-a706-43e2fb8a21f6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.4999975 : 4.125); (4.4999975 : 0.96875); (5.625 : 0.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.4999975 : 4.125); (4.4999975 : 0.96875); (5.625 : 0.96875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses2DataContext/User/User_Article" />
       <nodes>
         <classShapeMoniker Id="72f218d3-9e33-435b-a1f4-09ab46703129" />
         <classShapeMoniker Id="10bec3d5-5df4-4e6d-89bf-a19be616c5af" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.125 : 5.52005126953125); (5.97916666666667 : 5.52005126953125 : JumpStart); (6.14583333333333 : 5.52005126953125 : JumpEnd); (7.375 : 5.52005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.125 : 5.52005126953125); (7.375 : 5.52005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses2DataContext/User/User_New" />
       <nodes>
         <classShapeMoniker Id="72f218d3-9e33-435b-a1f4-09ab46703129" />
@@ -140,5 +140,11 @@
         <classShapeMoniker Id="9188ea58-7baf-4109-8077-50c6f5a4f759" />
       </nodes>
     </associationConnector>
+    <classShape Id="3146225b-f300-4ff6-8769-b27189531919" absoluteBounds="2.625, 10.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataClasses2DataContext/LogConnection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a168f96-e887-4442-a03a-c74d88489dfc" absoluteBounds="2.64, 11.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

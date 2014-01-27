@@ -57,6 +57,9 @@ namespace DAL_Library
     partial void InsertType(Type instance);
     partial void UpdateType(Type instance);
     partial void DeleteType(Type instance);
+    partial void InsertLogConnection(LogConnection instance);
+    partial void UpdateLogConnection(LogConnection instance);
+    partial void DeleteLogConnection(LogConnection instance);
     #endregion
 		
 		public DataClasses2DataContext() : 
@@ -158,6 +161,14 @@ namespace DAL_Library
 			get
 			{
 				return this.GetTable<Type>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LogConnection> LogConnections
+		{
+			get
+			{
+				return this.GetTable<LogConnection>();
 			}
 		}
 	}
@@ -2453,6 +2464,116 @@ namespace DAL_Library
 		{
 			this.SendPropertyChanging();
 			entity.Type = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LogConnections")]
+	public partial class LogConnection : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _ConnectionCount;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnConnectionCountChanging(int value);
+    partial void OnConnectionCountChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public LogConnection()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConnectionCount", DbType="Int NOT NULL")]
+		public int ConnectionCount
+		{
+			get
+			{
+				return this._ConnectionCount;
+			}
+			set
+			{
+				if ((this._ConnectionCount != value))
+				{
+					this.OnConnectionCountChanging(value);
+					this.SendPropertyChanging();
+					this._ConnectionCount = value;
+					this.SendPropertyChanged("ConnectionCount");
+					this.OnConnectionCountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

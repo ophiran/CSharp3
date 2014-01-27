@@ -88,7 +88,7 @@ namespace WebPressing
         private static void loadMenuCommon(MenuItem menu, String baseUrl)
         {
 
-            addChildMenu("Disconnect", menu, baseUrl + "default.aspx");
+            addChildMenu("Disconnect", menu, baseUrl + "Disconnect.aspx");
             addChildMenu("Home",menu,baseUrl+"default.aspx");
         }
     }

@@ -374,5 +374,50 @@ namespace DAL_Library
             dc.SubmitChanges();
         }
         #endregion
+
+        #region LogConnection
+        public List<LogConnection> getLogConnection()
+        {
+            IEnumerable<LogConnection> logList = from log in dc.LogConnections select log;
+            return logList.ToList<LogConnection>();
+        }
+
+        public int getMaxIdLogConnection()
+        {
+            if (dc.LogConnections.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return dc.LogConnections.Max(n => n.Id);
+            }
+        }
+
+        public void addLogConnection(LogConnection logConn)
+        {
+            if (!dc.LogConnections.Contains(logConn))
+            {
+                logConn.Id = getMaxIdStatus() + 1;
+                dc.LogConnections.InsertOnSubmit(logConn);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void delLogConnection(LogConnection logConn)
+        {
+
+            if (dc.LogConnections.Contains(logConn))
+            {
+                dc.LogConnections.DeleteOnSubmit(logConn);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void updLogConnection(LogConnection logConn)
+        {
+            dc.SubmitChanges();
+        }
+        #endregion
     }
 }

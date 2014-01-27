@@ -20,10 +20,24 @@ namespace WebPressing
             if(!IsPostBack)
             {
                 MultiView1.SetActiveView(JournalistView);
-
+                
+                Session["fromDate"] = DateTime.MinValue;
+                Session["toDate"] = DateTime.MaxValue;
             }
             DropDownList1.SelectedIndexChanged += DropDownList1_SelectedIndexChanged;
+            Calendar1.SelectionChanged += fromCalendarChanged;
+            Calendar2.SelectionChanged += toCalendarChanged;
             
+        }
+
+        private void toCalendarChanged(object sender, EventArgs e)
+        {
+            Session["toDate"] = Calendar2.SelectedDate;
+        }
+
+        private void fromCalendarChanged(object sender, EventArgs e)
+        {
+            Session["fromDate"] = Calendar1.SelectedDate;
         }
 
         void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,13 +54,13 @@ namespace WebPressing
             }
             else if(DropDownList1.SelectedIndex == 2)
             {
-                MultiView1.SetActiveView(ChartView);
+                MultiView1.SetActiveView(ConnectedView);
                 MultiView1.ActiveViewIndex = 2;
             }
             else
             {
-                MultiView1.SetActiveView(ChartView);
-                MultiView1.ActiveViewIndex = 2;
+                MultiView1.SetActiveView(ArticlesStatView);
+                MultiView1.ActiveViewIndex = 3;
             }
 
             

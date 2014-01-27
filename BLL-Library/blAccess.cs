@@ -196,5 +196,25 @@ namespace BLL_Library
             IEnumerable<Article> articles = dbAccess.getArticles().GroupBy(a => a.Author).SelectMany(group => group);
             return articles.ToList();
         }
+
+        public void incConnectionCount(DateTime time)
+        {
+            IEnumerable<LogConnection> logCol = dbAccess.getLogConnection().Where<LogConnection>(l => l.Date == time.Date);
+            LogConnection inLog;
+            if(logCol.ToList().Count == 0)
+            {
+                inLog = new LogConnection();
+                inLog.Date = time;
+                inLog.ConnectionCount = 1;
+                dbAccess.addLogConnection(inLog);
+            }
+            else
+            {
+                inLog = logCol.First<LogConnection>();
+                inLog.ConnectionCount++;
+                dbAccess.updLogConnection(inLog);
+            }
+            
+        }
     }
 }

@@ -107,4 +107,11 @@
       <Association Name="Status_Type" Member="Status1" ThisKey="Status" OtherKey="Id" Type="Status" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.LogConnections" Member="LogConnections">
+    <Type Name="LogConnection">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ConnectionCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
