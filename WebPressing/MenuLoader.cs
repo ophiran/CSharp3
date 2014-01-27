@@ -81,7 +81,8 @@ namespace WebPressing
             MenuItem addedItem = addChildMenu("Theme", menu, "", false);
             foreach (DAL_Library.Type theme in dbAccess.getThemes())
             {
-                addChildMenu(theme.Type1, addedItem, "ClientArticles.aspx");
+                if(theme.Status == dbAccess.getStatus("Active").Id)
+                    addChildMenu(theme.Type1, addedItem, "ClientArticles.aspx");
             }
         }
 

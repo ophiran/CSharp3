@@ -22,7 +22,7 @@ namespace WebPressing
             
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
             DAL_Library.User connectedUser = Session["ConnectedUser"] as DAL_Library.User;
-
+            
 
             if (Session["ConnectedUser"] == null)
             {
@@ -55,7 +55,10 @@ namespace WebPressing
             foreach (New news in listNews)
             {
                 TreeNode newNode = new TreeNode(news.Title);
-                newNode.ChildNodes.Add(new TreeNode(news.Text));
+                TreeNode nodeTxt = new TreeNode(news.Text);
+                nodeTxt.SelectAction = TreeNodeSelectAction.None;
+                newNode.ChildNodes.Add(nodeTxt);
+                newNode.SelectAction = TreeNodeSelectAction.None;
                 newsNodes.Add(newNode);
             }
 
@@ -63,7 +66,10 @@ namespace WebPressing
             foreach (Article article in listArticles)
             {
                 TreeNode newNode = new TreeNode(article.Title);
-                newNode.ChildNodes.Add(new TreeNode(article.Text));
+                TreeNode nodeTxt = new TreeNode(article.Text);
+                nodeTxt.SelectAction = TreeNodeSelectAction.None;
+                newNode.ChildNodes.Add(nodeTxt);
+                newNode.SelectAction = TreeNodeSelectAction.None;
                 articlesNodes.Add(newNode);
             }
         }

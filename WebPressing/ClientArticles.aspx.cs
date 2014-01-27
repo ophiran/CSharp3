@@ -1,6 +1,5 @@
 ﻿using BLL_Library;
 using DAL_Library;
-using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +36,8 @@ namespace WebPressing
             ListBox1.Items.Clear();
             foreach(Article item in articles)
             {
-                ListBox1.Items.Add(new ListItem(item.Title, item.Id.ToString()));
+                if(item.Status == dbAccess.getStatus("Active").Id)
+                    ListBox1.Items.Add(new ListItem(item.Title, item.Id.ToString()));
             }
 
             Theme.Text = (string)Session["Theme"];
