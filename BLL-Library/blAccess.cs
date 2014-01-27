@@ -216,5 +216,10 @@ namespace BLL_Library
             }
             
         }
+
+        public List<Comment> getComments(int articleId)
+        {
+            return dbAccess.getComments().Where<Comment>(c => c.Article == articleId).ToList<Comment>();
+        }
     }
 }

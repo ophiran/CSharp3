@@ -64,10 +64,18 @@ namespace WebPressing
             if (ListBox1.SelectedItem != null)
             {
                 Article item = dbAccess.getArticle(Int32.Parse(ListBox1.SelectedItem.Value));
-
+                List<Comment> comments = dbAccess.getComments(item.Id);
                 ArticleTitle.Text = item.Title;
                 ArticleSubtitle.Text = item.SubTitle;
                 TextBox1.Text = item.Text;
+                TextBoxComments.TextMode = TextBoxMode.MultiLine;
+
+                TextBoxComments.Text = "";
+                foreach(Comment itemC in comments)
+                {
+                    TextBoxComments.Text += itemC.Content;
+                    TextBoxComments.Text += "\n\n";
+                }
                 //ArticleImage.ImageUrl
             }
         }

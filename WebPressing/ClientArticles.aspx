@@ -12,9 +12,9 @@
         }
     </style>
 </head>
-<body style="height: 795px">
+<body style="height: 1064px">
     <form id="form1" runat="server">
-    <div style="height: 852px">
+    <div style="height: 1040px">
     
         
         <asp:Panel ID="Panel1" runat="server" BackColor="#666699">
@@ -55,7 +55,12 @@
         <asp:Label ID="ArticleSubtitle" runat="server" Text=""></asp:Label>
         <br />
         <br />
-        <asp:TextBox ID="TextBox1" runat="server" Height="123px" Width="175px"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" Height="123px" Width="175px" ReadOnly="True"></asp:TextBox>
+
+        <br />
+        <br />
+        Comments<br />
+        <asp:TextBox ID="TextBoxComments" runat="server" Height="142px" ReadOnly="True" Width="238px"></asp:TextBox>
 
     </div>
     </form>
