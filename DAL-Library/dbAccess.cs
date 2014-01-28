@@ -398,7 +398,7 @@ namespace DAL_Library
         {
             if (!dc.LogConnections.Contains(logConn))
             {
-                logConn.Id = getMaxIdStatus() + 1;
+                logConn.Id = getMaxIdLogConnection() + 1;
                 dc.LogConnections.InsertOnSubmit(logConn);
                 dc.SubmitChanges();
             }
