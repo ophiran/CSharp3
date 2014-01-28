@@ -9,7 +9,7 @@ namespace WebPressing
 {
     public enum UserType
 	{
-	         NONE,READER,ADMIN
+	         NONE,READER,ADMIN,THEME
 	}
 
     public class MenuLoader
@@ -50,6 +50,10 @@ namespace WebPressing
                     loadMenuAdmin(temp,baseUrl);
                     loadMenuCommon(temp,baseUrl);
                     break;
+                case UserType.THEME:
+                    loadMenuThemeReader(temp, baseUrl);
+                    loadMenuCommon(temp, baseUrl);
+                    break;
                 default:
                     break;
 	        }
@@ -83,6 +87,18 @@ namespace WebPressing
             {
                 if(theme.Status == dbAccess.getStatus("Active").Id)
                     addChildMenu(theme.Type1, addedItem, "ClientArticles.aspx");
+            }
+        }
+
+        private static void loadMenuThemeReader(MenuItem menu, String baseUrl)
+        {
+            BLL_Library.blAccess dbAccess = new BLL_Library.blAccess();
+
+            MenuItem addedItem = addChildMenu("Theme", menu, "", false);
+            foreach (DAL_Library.Type theme in dbAccess.getThemes())
+            {
+                if (theme.Status == dbAccess.getStatus("Active").Id)
+                    addChildMenu(theme.Type1, addedItem, null);
             }
         }
 

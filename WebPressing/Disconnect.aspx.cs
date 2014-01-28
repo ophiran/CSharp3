@@ -14,6 +14,7 @@ namespace WebPressing
             String redirectUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
             redirectUrl += "default.aspx";
             Session["ConnectedUser"] = null;
+            Session["ChangedTheme"] = true;
             Response.Redirect(redirectUrl);
         }
     }

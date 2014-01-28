@@ -13,10 +13,10 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:12288/NewsWCF.svc" binding="basicHttpBinding"
+            <endpoint address="http://10.59.22.98:12288/NewsWCF.svc" binding="basicHttpBinding"
                 bindingConfiguration="BasicHttpBinding_INewsWCF" contract="NewsService.INewsWCF"
                 name="BasicHttpBinding_INewsWCF" />
-            <endpoint address="http://192.168.1.111:12288/NewsWCF.svc" binding="basicHttpBinding"
+            <endpoint address="http://10.59.22.98:12288/NewsWCF.svc" binding="basicHttpBinding"
                 bindingConfiguration="BasicHttpBinding_INewsWCF1" contract="NewsService.INewsWCF"
                 name="BasicHttpBinding_INewsWCF1" />
         </client>

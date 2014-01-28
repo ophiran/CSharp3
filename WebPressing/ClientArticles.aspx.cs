@@ -21,10 +21,11 @@ namespace WebPressing
 
             //ListBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
             ListBox1.AutoPostBack = true;
+            
 
             //Create Menu
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
-            MenuLoader.loadMenu(Menu1, strUrl, UserType.READER);
+            MenuLoader.loadMenu(Menu1, strUrl, UserType.THEME);
 
             //Menu1.MenuItemClick += Menu1_MenuItemClick;
             
@@ -90,6 +91,7 @@ namespace WebPressing
             if (e.Item.Parent.Text == "Theme")
             {
                 Session["Theme"] = e.Item.Text;
+                Response.Redirect("ClientArticles.aspx");
             }
         }
     }

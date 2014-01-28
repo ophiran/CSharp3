@@ -45,15 +45,18 @@ namespace WebPressing
                     break;
                 case "Download":
                     Binary bin = dbAccess.getJournalist(tc[4].Text).File;
-                    String tmpFile = Path.GetTempFileName().Replace(".tmp",".jpg");
-                    FileStream fs = new FileStream(tmpFile, FileMode.OpenOrCreate);
-                    fs.Write(bin.ToArray(), 0, bin.Length);
-                    fs.Flush();
-                    fs.Close();
-                    Response.ContentType = "image/jpeg";
-                    Response.AppendHeader("content-disposition", "attachment; filename="+tmpFile);
-                    Response.TransmitFile(tmpFile);
-                    Response.End();
+                    if (bin != null)
+                    {
+                        String tmpFile = Path.GetTempFileName().Replace(".tmp", ".jpg");
+                        FileStream fs = new FileStream(tmpFile, FileMode.OpenOrCreate);
+                        fs.Write(bin.ToArray(), 0, bin.Length);
+                        fs.Flush();
+                        fs.Close();
+                        Response.ContentType = "image/jpeg";
+                        Response.AppendHeader("content-disposition", "attachment; filename=" + tmpFile);
+                        Response.TransmitFile(tmpFile);
+                        Response.End();
+                    }
                     break;
                 default:
                     break;

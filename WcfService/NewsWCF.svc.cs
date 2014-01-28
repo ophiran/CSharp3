@@ -115,19 +115,19 @@ namespace WcfService
         public void sendComment(Commentary commentary, People people, Paper paper)
         {
             Comment commentDb = new Comment();
-            User user = new User();
-            Article article = new Article();
+            User user = bl.getUser(people.UserName,people.Password);
+            Article article = bl.getArticle((int)paper.Id);/*
             user.Id = people.Id;
             user.FirstName = people.FirstName;
             user.LastName = people.LastName;
             user.UserName = people.UserName;
             user.Password = people.Password;
-            user.Right = people.Right;
+            user.Right = people.Right;/*
             article.Author = paper.Author;
             article.Id = (int)paper.Id;
             article.Overview = paper.Overview;
             article.SubTitle = paper.SubTitle;
-            article.Text = paper.Body;
+            article.Text = paper.Body;*/
             commentDb.User = user;
             commentDb.Rating = commentary.Rating;
             commentDb.Content = commentary.Content;

@@ -32,7 +32,8 @@ namespace WebPressing
             Wizard1.NextButtonClick += Wizard1_NextStep;
             Wizard1.SideBarButtonClick += Wizard1_NextStep;
 
-            RadioButtonList1.Items[0].Selected = true;
+            if(!IsPostBack)
+                RadioButtonList1.Items[0].Selected = true;
         }
 
         void Wizard1_NextStep(object sender, WizardNavigationEventArgs e)

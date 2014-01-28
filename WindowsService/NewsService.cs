@@ -85,7 +85,7 @@ namespace WindowsService
                     news.SubTitle = elem.Element("SubTitle").Value;
                     news.Body = elem.Element("Body").Value;
                     author = elem.Element("Author").Value;
-                    proxy.sendNewsA(news,"toto");
+                    proxy.sendNewsA(news,"ekym");
                 }
             }
             catch (Exception ex)
