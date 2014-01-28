@@ -18,7 +18,7 @@
     
         
         <asp:Panel ID="Panel1" runat="server" BackColor="#666699">
-            <asp:Menu ID="Menu1" runat="server" StaticSubMenuIndent="16px" Font-Bold="True" ForeColor="White">
+            <asp:Menu ID="Menu1" runat="server" StaticSubMenuIndent="16px" Font-Bold="True" ForeColor="White" OnMenuItemClick="Menu1_MenuItemClick">
             <DynamicMenuItemStyle BorderStyle="None" />
             <DynamicMenuStyle BackColor="#666699" BorderColor="#660033" BorderStyle="Inset" />
             <DynamicItemTemplate>

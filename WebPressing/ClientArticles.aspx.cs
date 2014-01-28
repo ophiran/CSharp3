@@ -26,7 +26,7 @@ namespace WebPressing
             String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "/");
             MenuLoader.loadMenu(Menu1, strUrl, UserType.READER);
 
-            Menu1.MenuItemClick += Menu1_MenuItemClick;
+            //Menu1.MenuItemClick += Menu1_MenuItemClick;
             
 
             if (Session["Theme"] == null)
@@ -49,7 +49,7 @@ namespace WebPressing
             ArticleImage.Visible = false;
         }
 
-
+        /*
         void Menu1_MenuItemClick(object sender, MenuEventArgs e)
         {
             MenuItem caller = sender as MenuItem;
@@ -59,7 +59,7 @@ namespace WebPressing
             {
                 Session["Theme"] = e.Item.Text;
             }
-        }
+        }*/
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,6 +79,17 @@ namespace WebPressing
                     TextBoxComments.Text += "\n\n";
                 }
                 //ArticleImage.ImageUrl
+            }
+        }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            MenuItem caller = sender as MenuItem;
+            Session["ChangedTheme"] = true;
+
+            if (e.Item.Parent.Text == "Theme")
+            {
+                Session["Theme"] = e.Item.Text;
             }
         }
     }
